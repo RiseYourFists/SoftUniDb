@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StacksAndQueues", "StacksAn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackSum", "StackSum\StackSum.csproj", "{94937C42-9049-4B5D-822E-5AAA47B5F431}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCalculator", "SimpleCalculator\SimpleCalculator.csproj", "{96325A73-492F-4EA3-9619-E4A93DE6C8C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{94937C42-9049-4B5D-822E-5AAA47B5F431}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94937C42-9049-4B5D-822E-5AAA47B5F431}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94937C42-9049-4B5D-822E-5AAA47B5F431}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96325A73-492F-4EA3-9619-E4A93DE6C8C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96325A73-492F-4EA3-9619-E4A93DE6C8C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96325A73-492F-4EA3-9619-E4A93DE6C8C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96325A73-492F-4EA3-9619-E4A93DE6C8C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,6 +36,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{B2698C9D-823F-4D2C-B241-142677F04421} = {4CED27FB-ACBE-4FC2-94A2-D7BF67DB4506}
 		{94937C42-9049-4B5D-822E-5AAA47B5F431} = {4CED27FB-ACBE-4FC2-94A2-D7BF67DB4506}
+		{96325A73-492F-4EA3-9619-E4A93DE6C8C3} = {4CED27FB-ACBE-4FC2-94A2-D7BF67DB4506}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {66B5FCF4-B08E-4650-B252-2FC19C42B82D}
