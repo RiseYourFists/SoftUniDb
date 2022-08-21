@@ -11,15 +11,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackSum", "StackSum\StackS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleCalculator", "SimpleCalculator\SimpleCalculator.csproj", "{96325A73-492F-4EA3-9619-E4A93DE6C8C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatchingBrackets", "MatchingBrackets\MatchingBrackets.csproj", "{A7BFB5EA-66F0-4ADE-A48B-DFAF082B4581}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MatchingBrackets", "MatchingBrackets\MatchingBrackets.csproj", "{A7BFB5EA-66F0-4ADE-A48B-DFAF082B4581}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrintEvenNumbers", "PrintEvenNumbers\PrintEvenNumbers.csproj", "{AC1DCFFC-AC9F-4C82-8D7C-AA9EA3DF343B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrintEvenNumbers", "PrintEvenNumbers\PrintEvenNumbers.csproj", "{AC1DCFFC-AC9F-4C82-8D7C-AA9EA3DF343B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMarket", "SuperMarket\SuperMarket.csproj", "{1A5BCF68-DEF8-4A60-A5A2-66C0EB059FFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuperMarket", "SuperMarket\SuperMarket.csproj", "{1A5BCF68-DEF8-4A60-A5A2-66C0EB059FFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotPotato", "HotPotato\HotPotato.csproj", "{9486E300-DFEB-484B-ADA4-9CA19E67508F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotPotato", "HotPotato\HotPotato.csproj", "{9486E300-DFEB-484B-ADA4-9CA19E67508F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficJam", "TrafficJam\TrafficJam.csproj", "{B2B556A9-62A0-49C0-8B78-101E4E1F601C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrafficJam", "TrafficJam\TrafficJam.csproj", "{B2B556A9-62A0-49C0-8B78-101E4E1F601C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotPotatoAlternativeSolution", "HotPotatoAlternativeSolution\HotPotatoAlternativeSolution.csproj", "{7BFF207D-0752-4D3C-8783-F798771D57FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +61,10 @@ Global
 		{B2B556A9-62A0-49C0-8B78-101E4E1F601C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2B556A9-62A0-49C0-8B78-101E4E1F601C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2B556A9-62A0-49C0-8B78-101E4E1F601C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BFF207D-0752-4D3C-8783-F798771D57FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BFF207D-0752-4D3C-8783-F798771D57FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BFF207D-0752-4D3C-8783-F798771D57FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BFF207D-0752-4D3C-8783-F798771D57FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,6 +78,7 @@ Global
 		{1A5BCF68-DEF8-4A60-A5A2-66C0EB059FFD} = {4CED27FB-ACBE-4FC2-94A2-D7BF67DB4506}
 		{9486E300-DFEB-484B-ADA4-9CA19E67508F} = {4CED27FB-ACBE-4FC2-94A2-D7BF67DB4506}
 		{B2B556A9-62A0-49C0-8B78-101E4E1F601C} = {4CED27FB-ACBE-4FC2-94A2-D7BF67DB4506}
+		{7BFF207D-0752-4D3C-8783-F798771D57FF} = {4CED27FB-ACBE-4FC2-94A2-D7BF67DB4506}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {66B5FCF4-B08E-4650-B252-2FC19C42B82D}
