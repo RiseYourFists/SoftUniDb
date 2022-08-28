@@ -45,7 +45,7 @@ namespace TruckTour
 
                 fuelTank += fuel;
 
-                if (fuelTank - distance <= 0)
+                if (fuelTank - distance < 0)
                 {
                     return false;
                 }
