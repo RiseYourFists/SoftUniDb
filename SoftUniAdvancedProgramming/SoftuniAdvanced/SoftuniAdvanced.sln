@@ -37,6 +37,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FashionBoutique", "FashionB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SongsQueue", "SongsQueue\SongsQueue.csproj", "{AC2CB736-904A-4335-A875-EE71490DE218}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TruckTour", "TruckTour\TruckTour.csproj", "{0DBAFA68-DB89-49A8-AD77-BE7F792D4DD9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -103,6 +105,10 @@ Global
 		{AC2CB736-904A-4335-A875-EE71490DE218}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC2CB736-904A-4335-A875-EE71490DE218}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC2CB736-904A-4335-A875-EE71490DE218}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DBAFA68-DB89-49A8-AD77-BE7F792D4DD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DBAFA68-DB89-49A8-AD77-BE7F792D4DD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DBAFA68-DB89-49A8-AD77-BE7F792D4DD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DBAFA68-DB89-49A8-AD77-BE7F792D4DD9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -123,6 +129,7 @@ Global
 		{AD13F736-8625-4F32-BB5F-FEA58BECE1F0} = {1DA641E4-FAC5-4664-8A60-2A2809513986}
 		{91BFEA64-9DA2-468D-B44C-BCBB73D737C7} = {1DA641E4-FAC5-4664-8A60-2A2809513986}
 		{AC2CB736-904A-4335-A875-EE71490DE218} = {1DA641E4-FAC5-4664-8A60-2A2809513986}
+		{0DBAFA68-DB89-49A8-AD77-BE7F792D4DD9} = {1DA641E4-FAC5-4664-8A60-2A2809513986}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {66B5FCF4-B08E-4650-B252-2FC19C42B82D}
