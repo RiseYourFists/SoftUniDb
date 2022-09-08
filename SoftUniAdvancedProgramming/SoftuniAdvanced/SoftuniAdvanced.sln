@@ -53,7 +53,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SumOfPrimaryDiagonal", "Sum
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SymbolInMatrix", "SymbolInMatrix\SymbolInMatrix.csproj", "{8C7E6A41-8350-4C8C-B2D5-EE930E64921C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SquareWithMaxSum", "SquareWithMaxSum\SquareWithMaxSum.csproj", "{ADB94B2B-EC3F-4CA5-BAE0-BBA1EC06D41F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SquareWithMaxSum", "SquareWithMaxSum\SquareWithMaxSum.csproj", "{ADB94B2B-EC3F-4CA5-BAE0-BBA1EC06D41F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JaggedArrayModification", "JaggedArrayModification\JaggedArrayModification.csproj", "{DEF6A536-414E-43CD-ABD3-D42B47545224}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -153,6 +155,10 @@ Global
 		{ADB94B2B-EC3F-4CA5-BAE0-BBA1EC06D41F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADB94B2B-EC3F-4CA5-BAE0-BBA1EC06D41F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADB94B2B-EC3F-4CA5-BAE0-BBA1EC06D41F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEF6A536-414E-43CD-ABD3-D42B47545224}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEF6A536-414E-43CD-ABD3-D42B47545224}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEF6A536-414E-43CD-ABD3-D42B47545224}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEF6A536-414E-43CD-ABD3-D42B47545224}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -181,6 +187,7 @@ Global
 		{4490FACD-FAA3-4627-ABD9-FE0C08AA918C} = {9D052444-57E7-4640-9AA3-C9B67BAE6A14}
 		{8C7E6A41-8350-4C8C-B2D5-EE930E64921C} = {9D052444-57E7-4640-9AA3-C9B67BAE6A14}
 		{ADB94B2B-EC3F-4CA5-BAE0-BBA1EC06D41F} = {9D052444-57E7-4640-9AA3-C9B67BAE6A14}
+		{DEF6A536-414E-43CD-ABD3-D42B47545224} = {9D052444-57E7-4640-9AA3-C9B67BAE6A14}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {66B5FCF4-B08E-4650-B252-2FC19C42B82D}
