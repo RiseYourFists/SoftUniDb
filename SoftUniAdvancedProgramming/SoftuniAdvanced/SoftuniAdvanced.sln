@@ -55,9 +55,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SymbolInMatrix", "SymbolInM
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SquareWithMaxSum", "SquareWithMaxSum\SquareWithMaxSum.csproj", "{ADB94B2B-EC3F-4CA5-BAE0-BBA1EC06D41F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JaggedArrayModification", "JaggedArrayModification\JaggedArrayModification.csproj", "{DEF6A536-414E-43CD-ABD3-D42B47545224}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JaggedArrayModification", "JaggedArrayModification\JaggedArrayModification.csproj", "{DEF6A536-414E-43CD-ABD3-D42B47545224}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PascalsTriangle", "PascalsTriangle\PascalsTriangle.csproj", "{80CB59DC-FC4B-4C26-A70B-33FB1B59F978}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PascalsTriangle", "PascalsTriangle\PascalsTriangle.csproj", "{80CB59DC-FC4B-4C26-A70B-33FB1B59F978}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MultidimentionalArraysExercise", "MultidimentionalArraysExercise", "{7E6F2E43-A3E6-43EB-A127-5B07A21B1393}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiagonalDifference", "DiagonalDifference\DiagonalDifference.csproj", "{5C4E521F-CABC-4DA0-9EDD-6C62D7ECCD3A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -165,6 +169,10 @@ Global
 		{80CB59DC-FC4B-4C26-A70B-33FB1B59F978}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80CB59DC-FC4B-4C26-A70B-33FB1B59F978}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80CB59DC-FC4B-4C26-A70B-33FB1B59F978}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C4E521F-CABC-4DA0-9EDD-6C62D7ECCD3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C4E521F-CABC-4DA0-9EDD-6C62D7ECCD3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C4E521F-CABC-4DA0-9EDD-6C62D7ECCD3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C4E521F-CABC-4DA0-9EDD-6C62D7ECCD3A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -195,6 +203,7 @@ Global
 		{ADB94B2B-EC3F-4CA5-BAE0-BBA1EC06D41F} = {9D052444-57E7-4640-9AA3-C9B67BAE6A14}
 		{DEF6A536-414E-43CD-ABD3-D42B47545224} = {9D052444-57E7-4640-9AA3-C9B67BAE6A14}
 		{80CB59DC-FC4B-4C26-A70B-33FB1B59F978} = {9D052444-57E7-4640-9AA3-C9B67BAE6A14}
+		{5C4E521F-CABC-4DA0-9EDD-6C62D7ECCD3A} = {7E6F2E43-A3E6-43EB-A127-5B07A21B1393}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {66B5FCF4-B08E-4650-B252-2FC19C42B82D}
