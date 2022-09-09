@@ -62,6 +62,7 @@ namespace MatrixShuffling
                 Console.WriteLine();
             }
         }
+
         private static bool ParamOutOfRange(string[,] matrix, int targetRow, int targetCol, int moveTargetRow, int moveTargetCol)
         {
             var lenRow = matrix.GetLength(0);
