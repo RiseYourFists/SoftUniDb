@@ -65,9 +65,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiagonalDifference", "Diago
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SquaresInMatrix", "SquaresInMatrix\SquaresInMatrix.csproj", "{68DF7B2E-ED77-4062-95C2-78257D154F08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaximalSum", "MaximalSum\MaximalSum.csproj", "{BD37A428-7456-44BC-8C5C-6844537B5F61}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MaximalSum", "MaximalSum\MaximalSum.csproj", "{BD37A428-7456-44BC-8C5C-6844537B5F61}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatrixShuffling", "MatrixShuffling\MatrixShuffling.csproj", "{CA5478C2-52E2-4C80-9AED-83DF08E43970}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MatrixShuffling", "MatrixShuffling\MatrixShuffling.csproj", "{CA5478C2-52E2-4C80-9AED-83DF08E43970}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnakeMoves", "SnakeMoves\SnakeMoves.csproj", "{23590944-F668-4729-BF2C-7882CB06D546}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -191,6 +193,10 @@ Global
 		{CA5478C2-52E2-4C80-9AED-83DF08E43970}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA5478C2-52E2-4C80-9AED-83DF08E43970}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA5478C2-52E2-4C80-9AED-83DF08E43970}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23590944-F668-4729-BF2C-7882CB06D546}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23590944-F668-4729-BF2C-7882CB06D546}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23590944-F668-4729-BF2C-7882CB06D546}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23590944-F668-4729-BF2C-7882CB06D546}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -225,6 +231,7 @@ Global
 		{68DF7B2E-ED77-4062-95C2-78257D154F08} = {7E6F2E43-A3E6-43EB-A127-5B07A21B1393}
 		{BD37A428-7456-44BC-8C5C-6844537B5F61} = {7E6F2E43-A3E6-43EB-A127-5B07A21B1393}
 		{CA5478C2-52E2-4C80-9AED-83DF08E43970} = {7E6F2E43-A3E6-43EB-A127-5B07A21B1393}
+		{23590944-F668-4729-BF2C-7882CB06D546} = {7E6F2E43-A3E6-43EB-A127-5B07A21B1393}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {66B5FCF4-B08E-4650-B252-2FC19C42B82D}
