@@ -69,9 +69,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MaximalSum", "MaximalSum\Ma
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MatrixShuffling", "MatrixShuffling\MatrixShuffling.csproj", "{CA5478C2-52E2-4C80-9AED-83DF08E43970}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnakeMoves", "SnakeMoves\SnakeMoves.csproj", "{23590944-F668-4729-BF2C-7882CB06D546}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SnakeMoves", "SnakeMoves\SnakeMoves.csproj", "{23590944-F668-4729-BF2C-7882CB06D546}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JaggedArrayManipulator", "JaggedArrayManipulator\JaggedArrayManipulator.csproj", "{77094DB7-61EE-4EFE-8F81-6A6CBF6913B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JaggedArrayManipulator", "JaggedArrayManipulator\JaggedArrayManipulator.csproj", "{77094DB7-61EE-4EFE-8F81-6A6CBF6913B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnightGame", "KnightGame\KnightGame.csproj", "{3F056E5A-2DBA-4B44-8A15-7D8AEE9A1468}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -203,6 +205,10 @@ Global
 		{77094DB7-61EE-4EFE-8F81-6A6CBF6913B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77094DB7-61EE-4EFE-8F81-6A6CBF6913B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77094DB7-61EE-4EFE-8F81-6A6CBF6913B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F056E5A-2DBA-4B44-8A15-7D8AEE9A1468}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F056E5A-2DBA-4B44-8A15-7D8AEE9A1468}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F056E5A-2DBA-4B44-8A15-7D8AEE9A1468}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F056E5A-2DBA-4B44-8A15-7D8AEE9A1468}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -239,6 +245,7 @@ Global
 		{CA5478C2-52E2-4C80-9AED-83DF08E43970} = {7E6F2E43-A3E6-43EB-A127-5B07A21B1393}
 		{23590944-F668-4729-BF2C-7882CB06D546} = {7E6F2E43-A3E6-43EB-A127-5B07A21B1393}
 		{77094DB7-61EE-4EFE-8F81-6A6CBF6913B8} = {7E6F2E43-A3E6-43EB-A127-5B07A21B1393}
+		{3F056E5A-2DBA-4B44-8A15-7D8AEE9A1468} = {7E6F2E43-A3E6-43EB-A127-5B07A21B1393}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {66B5FCF4-B08E-4650-B252-2FC19C42B82D}
