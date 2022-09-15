@@ -79,6 +79,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SetsAndDictionaries", "Sets
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SameValuesInArray", "SameValuesInArray\SameValuesInArray.csproj", "{646BE396-ABA5-4272-BEB7-9235FA6A44C2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvgStudentsGrades", "AvgStudentsGrades\AvgStudentsGrades.csproj", "{CA9AFFB6-3EDF-4E5B-B756-9B6D99B47D5A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -217,6 +219,10 @@ Global
 		{646BE396-ABA5-4272-BEB7-9235FA6A44C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{646BE396-ABA5-4272-BEB7-9235FA6A44C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{646BE396-ABA5-4272-BEB7-9235FA6A44C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA9AFFB6-3EDF-4E5B-B756-9B6D99B47D5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA9AFFB6-3EDF-4E5B-B756-9B6D99B47D5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA9AFFB6-3EDF-4E5B-B756-9B6D99B47D5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA9AFFB6-3EDF-4E5B-B756-9B6D99B47D5A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -255,6 +261,7 @@ Global
 		{77094DB7-61EE-4EFE-8F81-6A6CBF6913B8} = {7E6F2E43-A3E6-43EB-A127-5B07A21B1393}
 		{3F056E5A-2DBA-4B44-8A15-7D8AEE9A1468} = {7E6F2E43-A3E6-43EB-A127-5B07A21B1393}
 		{646BE396-ABA5-4272-BEB7-9235FA6A44C2} = {66EDCCC2-5618-4FE8-938D-EF83EFBCC402}
+		{CA9AFFB6-3EDF-4E5B-B756-9B6D99B47D5A} = {66EDCCC2-5618-4FE8-938D-EF83EFBCC402}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {66B5FCF4-B08E-4650-B252-2FC19C42B82D}
