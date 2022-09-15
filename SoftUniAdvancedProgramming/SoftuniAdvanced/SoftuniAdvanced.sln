@@ -83,6 +83,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvgStudentsGrades", "AvgStu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Largest3Numbers", "Largest3Numbers\Largest3Numbers.csproj", "{5B16B8C6-388B-4EEE-9EF2-B4E778830897}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductShop", "ProductShop\ProductShop.csproj", "{8DC991AE-8B6C-4BE3-83A6-5C2895EF998B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -229,6 +231,10 @@ Global
 		{5B16B8C6-388B-4EEE-9EF2-B4E778830897}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B16B8C6-388B-4EEE-9EF2-B4E778830897}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B16B8C6-388B-4EEE-9EF2-B4E778830897}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DC991AE-8B6C-4BE3-83A6-5C2895EF998B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DC991AE-8B6C-4BE3-83A6-5C2895EF998B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DC991AE-8B6C-4BE3-83A6-5C2895EF998B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DC991AE-8B6C-4BE3-83A6-5C2895EF998B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -269,6 +275,7 @@ Global
 		{646BE396-ABA5-4272-BEB7-9235FA6A44C2} = {66EDCCC2-5618-4FE8-938D-EF83EFBCC402}
 		{CA9AFFB6-3EDF-4E5B-B756-9B6D99B47D5A} = {66EDCCC2-5618-4FE8-938D-EF83EFBCC402}
 		{5B16B8C6-388B-4EEE-9EF2-B4E778830897} = {66EDCCC2-5618-4FE8-938D-EF83EFBCC402}
+		{8DC991AE-8B6C-4BE3-83A6-5C2895EF998B} = {66EDCCC2-5618-4FE8-938D-EF83EFBCC402}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {66B5FCF4-B08E-4650-B252-2FC19C42B82D}
