@@ -81,6 +81,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SameValuesInArray", "SameVa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvgStudentsGrades", "AvgStudentsGrades\AvgStudentsGrades.csproj", "{CA9AFFB6-3EDF-4E5B-B756-9B6D99B47D5A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Largest3Numbers", "Largest3Numbers\Largest3Numbers.csproj", "{5B16B8C6-388B-4EEE-9EF2-B4E778830897}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -223,6 +225,10 @@ Global
 		{CA9AFFB6-3EDF-4E5B-B756-9B6D99B47D5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA9AFFB6-3EDF-4E5B-B756-9B6D99B47D5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA9AFFB6-3EDF-4E5B-B756-9B6D99B47D5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B16B8C6-388B-4EEE-9EF2-B4E778830897}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B16B8C6-388B-4EEE-9EF2-B4E778830897}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B16B8C6-388B-4EEE-9EF2-B4E778830897}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B16B8C6-388B-4EEE-9EF2-B4E778830897}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -262,6 +268,7 @@ Global
 		{3F056E5A-2DBA-4B44-8A15-7D8AEE9A1468} = {7E6F2E43-A3E6-43EB-A127-5B07A21B1393}
 		{646BE396-ABA5-4272-BEB7-9235FA6A44C2} = {66EDCCC2-5618-4FE8-938D-EF83EFBCC402}
 		{CA9AFFB6-3EDF-4E5B-B756-9B6D99B47D5A} = {66EDCCC2-5618-4FE8-938D-EF83EFBCC402}
+		{5B16B8C6-388B-4EEE-9EF2-B4E778830897} = {66EDCCC2-5618-4FE8-938D-EF83EFBCC402}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {66B5FCF4-B08E-4650-B252-2FC19C42B82D}
