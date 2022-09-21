@@ -77,13 +77,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KnightGame", "KnightGame\Kn
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SetsAndDictionaries", "SetsAndDictionaries", "{66EDCCC2-5618-4FE8-938D-EF83EFBCC402}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SameValuesInArray", "SameValuesInArray\SameValuesInArray.csproj", "{646BE396-ABA5-4272-BEB7-9235FA6A44C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SameValuesInArray", "SameValuesInArray\SameValuesInArray.csproj", "{646BE396-ABA5-4272-BEB7-9235FA6A44C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvgStudentsGrades", "AvgStudentsGrades\AvgStudentsGrades.csproj", "{CA9AFFB6-3EDF-4E5B-B756-9B6D99B47D5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvgStudentsGrades", "AvgStudentsGrades\AvgStudentsGrades.csproj", "{CA9AFFB6-3EDF-4E5B-B756-9B6D99B47D5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Largest3Numbers", "Largest3Numbers\Largest3Numbers.csproj", "{5B16B8C6-388B-4EEE-9EF2-B4E778830897}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Largest3Numbers", "Largest3Numbers\Largest3Numbers.csproj", "{5B16B8C6-388B-4EEE-9EF2-B4E778830897}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductShop", "ProductShop\ProductShop.csproj", "{8DC991AE-8B6C-4BE3-83A6-5C2895EF998B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductShop", "ProductShop\ProductShop.csproj", "{8DC991AE-8B6C-4BE3-83A6-5C2895EF998B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CitiesByContinentAndCountry", "CitiesByContinentAndCountry\CitiesByContinentAndCountry.csproj", "{215D3B5A-4609-4E5C-A758-571DB45ED98F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -235,6 +237,10 @@ Global
 		{8DC991AE-8B6C-4BE3-83A6-5C2895EF998B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DC991AE-8B6C-4BE3-83A6-5C2895EF998B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DC991AE-8B6C-4BE3-83A6-5C2895EF998B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{215D3B5A-4609-4E5C-A758-571DB45ED98F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{215D3B5A-4609-4E5C-A758-571DB45ED98F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{215D3B5A-4609-4E5C-A758-571DB45ED98F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{215D3B5A-4609-4E5C-A758-571DB45ED98F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -276,6 +282,7 @@ Global
 		{CA9AFFB6-3EDF-4E5B-B756-9B6D99B47D5A} = {66EDCCC2-5618-4FE8-938D-EF83EFBCC402}
 		{5B16B8C6-388B-4EEE-9EF2-B4E778830897} = {66EDCCC2-5618-4FE8-938D-EF83EFBCC402}
 		{8DC991AE-8B6C-4BE3-83A6-5C2895EF998B} = {66EDCCC2-5618-4FE8-938D-EF83EFBCC402}
+		{215D3B5A-4609-4E5C-A758-571DB45ED98F} = {66EDCCC2-5618-4FE8-938D-EF83EFBCC402}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {66B5FCF4-B08E-4650-B252-2FC19C42B82D}
