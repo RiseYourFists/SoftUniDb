@@ -93,6 +93,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParkingLot", "ParkingLot\Pa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftuniParty", "SoftuniParty\SoftuniParty.csproj", "{763C88C5-22EF-4985-B0D8-76A20CB78975}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SetsAndDictionariesExercise", "SetsAndDictionariesExercise", "{3033F70D-7414-4AB5-9F25-D1C49E45E7DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniqueUsernames", "UniqueUsernames\UniqueUsernames.csproj", "{40B4BF2D-C766-4AB7-9B79-371A1CB8F573}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -259,6 +263,10 @@ Global
 		{763C88C5-22EF-4985-B0D8-76A20CB78975}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{763C88C5-22EF-4985-B0D8-76A20CB78975}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{763C88C5-22EF-4985-B0D8-76A20CB78975}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40B4BF2D-C766-4AB7-9B79-371A1CB8F573}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40B4BF2D-C766-4AB7-9B79-371A1CB8F573}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40B4BF2D-C766-4AB7-9B79-371A1CB8F573}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40B4BF2D-C766-4AB7-9B79-371A1CB8F573}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -304,6 +312,7 @@ Global
 		{20B79B7A-7E0B-4DFA-9B2E-D5B8E120D3F0} = {66EDCCC2-5618-4FE8-938D-EF83EFBCC402}
 		{DCAD79E7-61E1-40D3-9D59-7D6084A2A991} = {66EDCCC2-5618-4FE8-938D-EF83EFBCC402}
 		{763C88C5-22EF-4985-B0D8-76A20CB78975} = {66EDCCC2-5618-4FE8-938D-EF83EFBCC402}
+		{40B4BF2D-C766-4AB7-9B79-371A1CB8F573} = {3033F70D-7414-4AB5-9F25-D1C49E45E7DE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {66B5FCF4-B08E-4650-B252-2FC19C42B82D}
