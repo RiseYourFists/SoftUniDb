@@ -133,6 +133,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CopyBinaryFile", "CopyBinar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoryTraversal", "DirectoryTraversal\DirectoryTraversal.csproj", "{DB667B6B-3FE0-4E88-920E-815406254D6B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CopyDirectory", "CopyDirectory\CopyDirectory.csproj", "{83915649-536A-4CE2-B1F8-6B9A374B1CEF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -367,6 +369,10 @@ Global
 		{DB667B6B-3FE0-4E88-920E-815406254D6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB667B6B-3FE0-4E88-920E-815406254D6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB667B6B-3FE0-4E88-920E-815406254D6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83915649-536A-4CE2-B1F8-6B9A374B1CEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83915649-536A-4CE2-B1F8-6B9A374B1CEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83915649-536A-4CE2-B1F8-6B9A374B1CEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83915649-536A-4CE2-B1F8-6B9A374B1CEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -429,6 +435,7 @@ Global
 		{E4E0163B-7977-4822-9179-975C51F45EF6} = {406AC17F-67C9-405F-A375-6A45DBD06905}
 		{A74A83BD-498C-4100-8E3B-BCEE54707495} = {406AC17F-67C9-405F-A375-6A45DBD06905}
 		{DB667B6B-3FE0-4E88-920E-815406254D6B} = {406AC17F-67C9-405F-A375-6A45DBD06905}
+		{83915649-536A-4CE2-B1F8-6B9A374B1CEF} = {406AC17F-67C9-405F-A375-6A45DBD06905}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {66B5FCF4-B08E-4650-B252-2FC19C42B82D}
