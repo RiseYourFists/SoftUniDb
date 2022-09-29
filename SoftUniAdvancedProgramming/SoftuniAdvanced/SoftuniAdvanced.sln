@@ -131,6 +131,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LineNumbersExercise", "Line
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CopyBinaryFile", "CopyBinaryFile\CopyBinaryFile.csproj", "{A74A83BD-498C-4100-8E3B-BCEE54707495}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoryTraversal", "DirectoryTraversal\DirectoryTraversal.csproj", "{DB667B6B-3FE0-4E88-920E-815406254D6B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -361,6 +363,10 @@ Global
 		{A74A83BD-498C-4100-8E3B-BCEE54707495}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A74A83BD-498C-4100-8E3B-BCEE54707495}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A74A83BD-498C-4100-8E3B-BCEE54707495}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB667B6B-3FE0-4E88-920E-815406254D6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB667B6B-3FE0-4E88-920E-815406254D6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB667B6B-3FE0-4E88-920E-815406254D6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB667B6B-3FE0-4E88-920E-815406254D6B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -422,6 +428,7 @@ Global
 		{2FF0F884-557E-4E75-8161-A435435D5494} = {406AC17F-67C9-405F-A375-6A45DBD06905}
 		{E4E0163B-7977-4822-9179-975C51F45EF6} = {406AC17F-67C9-405F-A375-6A45DBD06905}
 		{A74A83BD-498C-4100-8E3B-BCEE54707495} = {406AC17F-67C9-405F-A375-6A45DBD06905}
+		{DB667B6B-3FE0-4E88-920E-815406254D6B} = {406AC17F-67C9-405F-A375-6A45DBD06905}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {66B5FCF4-B08E-4650-B252-2FC19C42B82D}
