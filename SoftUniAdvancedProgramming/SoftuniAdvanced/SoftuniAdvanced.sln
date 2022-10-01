@@ -141,6 +141,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FunctionalProgramming", "Fu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortEvenNumbers", "SortEvenNumbers\SortEvenNumbers.csproj", "{DD2BBBC4-239E-40A2-ACEA-27EC508F9798}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SumNumbers", "SumNumbers\SumNumbers.csproj", "{70E99590-5372-44B6-B3AA-1E5694F322FF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -387,6 +389,10 @@ Global
 		{DD2BBBC4-239E-40A2-ACEA-27EC508F9798}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD2BBBC4-239E-40A2-ACEA-27EC508F9798}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD2BBBC4-239E-40A2-ACEA-27EC508F9798}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70E99590-5372-44B6-B3AA-1E5694F322FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70E99590-5372-44B6-B3AA-1E5694F322FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70E99590-5372-44B6-B3AA-1E5694F322FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70E99590-5372-44B6-B3AA-1E5694F322FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -452,6 +458,7 @@ Global
 		{83915649-536A-4CE2-B1F8-6B9A374B1CEF} = {406AC17F-67C9-405F-A375-6A45DBD06905}
 		{E5A4C4D4-786F-4B92-8380-16726E9C536C} = {406AC17F-67C9-405F-A375-6A45DBD06905}
 		{DD2BBBC4-239E-40A2-ACEA-27EC508F9798} = {061B1333-A572-443F-B0C4-371EC26DC851}
+		{70E99590-5372-44B6-B3AA-1E5694F322FF} = {061B1333-A572-443F-B0C4-371EC26DC851}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {66B5FCF4-B08E-4650-B252-2FC19C42B82D}
