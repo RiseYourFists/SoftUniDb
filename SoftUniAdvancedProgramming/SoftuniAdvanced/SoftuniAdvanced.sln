@@ -143,6 +143,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortEvenNumbers", "SortEven
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SumNumbers", "SumNumbers\SumNumbers.csproj", "{70E99590-5372-44B6-B3AA-1E5694F322FF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountUppercaseWords", "CountUppercaseWords\CountUppercaseWords.csproj", "{636E9D89-9EBE-4AA5-A7CC-E6146610BE76}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -393,6 +395,10 @@ Global
 		{70E99590-5372-44B6-B3AA-1E5694F322FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70E99590-5372-44B6-B3AA-1E5694F322FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70E99590-5372-44B6-B3AA-1E5694F322FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{636E9D89-9EBE-4AA5-A7CC-E6146610BE76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{636E9D89-9EBE-4AA5-A7CC-E6146610BE76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{636E9D89-9EBE-4AA5-A7CC-E6146610BE76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{636E9D89-9EBE-4AA5-A7CC-E6146610BE76}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -459,6 +465,7 @@ Global
 		{E5A4C4D4-786F-4B92-8380-16726E9C536C} = {406AC17F-67C9-405F-A375-6A45DBD06905}
 		{DD2BBBC4-239E-40A2-ACEA-27EC508F9798} = {061B1333-A572-443F-B0C4-371EC26DC851}
 		{70E99590-5372-44B6-B3AA-1E5694F322FF} = {061B1333-A572-443F-B0C4-371EC26DC851}
+		{636E9D89-9EBE-4AA5-A7CC-E6146610BE76} = {061B1333-A572-443F-B0C4-371EC26DC851}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {66B5FCF4-B08E-4650-B252-2FC19C42B82D}
