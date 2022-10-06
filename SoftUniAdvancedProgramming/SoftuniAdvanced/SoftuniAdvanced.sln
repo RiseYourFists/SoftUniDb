@@ -167,11 +167,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PredicateForNames", "Predic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListOfPredicates", "ListOfPredicates\ListOfPredicates.csproj", "{42ECB965-04C3-4F4B-A5FD-A7697E4DB22B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PredicateParty", "PredicateParty\PredicateParty.csproj", "{EBFBEDC2-0952-4237-BDE6-6C8B7BB000CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PredicateParty", "PredicateParty\PredicateParty.csproj", "{EBFBEDC2-0952-4237-BDE6-6C8B7BB000CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PartyReservationFilterModule", "PartyReservationFilterModule\PartyReservationFilterModule.csproj", "{09A01179-169B-4D0E-987D-B043CC9AED04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PartyReservationFilterModule", "PartyReservationFilterModule\PartyReservationFilterModule.csproj", "{09A01179-169B-4D0E-987D-B043CC9AED04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriFunction", "TriFunction\TriFunction.csproj", "{1BC1F525-47A1-4C5C-9E8F-EB0299E4800F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TriFunction", "TriFunction\TriFunction.csproj", "{1BC1F525-47A1-4C5C-9E8F-EB0299E4800F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DefiningClasses", "DefiningClasses", "{E15DEB00-3411-430D-9ECC-AC1FDDBAC4EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarManufacturer", "Car\CarManufacturer.csproj", "{720CAEBB-DAB4-413D-952D-B2897A59063A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -479,6 +483,10 @@ Global
 		{1BC1F525-47A1-4C5C-9E8F-EB0299E4800F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BC1F525-47A1-4C5C-9E8F-EB0299E4800F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BC1F525-47A1-4C5C-9E8F-EB0299E4800F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{720CAEBB-DAB4-413D-952D-B2897A59063A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{720CAEBB-DAB4-413D-952D-B2897A59063A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{720CAEBB-DAB4-413D-952D-B2897A59063A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{720CAEBB-DAB4-413D-952D-B2897A59063A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -559,6 +567,7 @@ Global
 		{EBFBEDC2-0952-4237-BDE6-6C8B7BB000CF} = {4E2B3314-E124-48AF-A207-B7DB1DA73757}
 		{09A01179-169B-4D0E-987D-B043CC9AED04} = {4E2B3314-E124-48AF-A207-B7DB1DA73757}
 		{1BC1F525-47A1-4C5C-9E8F-EB0299E4800F} = {4E2B3314-E124-48AF-A207-B7DB1DA73757}
+		{720CAEBB-DAB4-413D-952D-B2897A59063A} = {E15DEB00-3411-430D-9ECC-AC1FDDBAC4EA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {66B5FCF4-B08E-4650-B252-2FC19C42B82D}
