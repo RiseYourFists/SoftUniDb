@@ -179,6 +179,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarManufacturer", "Car\CarM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarExtension", "CarExtension\CarExtension.csproj", "{82FEA573-E267-4B1B-8533-87A0C5594908}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarConstructors", "CarConstructors\CarConstructors.csproj", "{55D95A46-4BA7-41EF-8B37-354D0C820C57}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -493,6 +495,10 @@ Global
 		{82FEA573-E267-4B1B-8533-87A0C5594908}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82FEA573-E267-4B1B-8533-87A0C5594908}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82FEA573-E267-4B1B-8533-87A0C5594908}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55D95A46-4BA7-41EF-8B37-354D0C820C57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55D95A46-4BA7-41EF-8B37-354D0C820C57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55D95A46-4BA7-41EF-8B37-354D0C820C57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55D95A46-4BA7-41EF-8B37-354D0C820C57}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -575,6 +581,7 @@ Global
 		{1BC1F525-47A1-4C5C-9E8F-EB0299E4800F} = {4E2B3314-E124-48AF-A207-B7DB1DA73757}
 		{720CAEBB-DAB4-413D-952D-B2897A59063A} = {E15DEB00-3411-430D-9ECC-AC1FDDBAC4EA}
 		{82FEA573-E267-4B1B-8533-87A0C5594908} = {E15DEB00-3411-430D-9ECC-AC1FDDBAC4EA}
+		{55D95A46-4BA7-41EF-8B37-354D0C820C57} = {E15DEB00-3411-430D-9ECC-AC1FDDBAC4EA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {66B5FCF4-B08E-4650-B252-2FC19C42B82D}
