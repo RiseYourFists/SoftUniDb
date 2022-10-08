@@ -175,15 +175,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TriFunction", "TriFunction\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DefiningClasses", "DefiningClasses", "{E15DEB00-3411-430D-9ECC-AC1FDDBAC4EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarManufacturer", "Car\CarManufacturer.csproj", "{720CAEBB-DAB4-413D-952D-B2897A59063A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarManufacturer", "Car\CarManufacturer.csproj", "{720CAEBB-DAB4-413D-952D-B2897A59063A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarExtension", "CarExtension\CarExtension.csproj", "{82FEA573-E267-4B1B-8533-87A0C5594908}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarExtension", "CarExtension\CarExtension.csproj", "{82FEA573-E267-4B1B-8533-87A0C5594908}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarConstructors", "CarConstructors\CarConstructors.csproj", "{55D95A46-4BA7-41EF-8B37-354D0C820C57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarConstructors", "CarConstructors\CarConstructors.csproj", "{55D95A46-4BA7-41EF-8B37-354D0C820C57}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarEngineAndTires", "CarEngineAndTires\CarEngineAndTires.csproj", "{B53E9B45-73C4-4852-ABB8-7DB41934B74D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarEngineAndTires", "CarEngineAndTires\CarEngineAndTires.csproj", "{B53E9B45-73C4-4852-ABB8-7DB41934B74D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecialCars", "SpecialCars\SpecialCars.csproj", "{CF05889B-34DE-4A86-953C-C5DF06F55597}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecialCars", "SpecialCars\SpecialCars.csproj", "{CF05889B-34DE-4A86-953C-C5DF06F55597}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DefiningClassesExercise", "DefiningClassesExercise", "{9A07107A-EB85-4D4B-B52C-102A37FCB5A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DefineClassPerson", "DefineClassPerson\DefineClassPerson.csproj", "{7E398BE9-710D-4AC5-BBBA-D3695E642D8D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -511,6 +515,10 @@ Global
 		{CF05889B-34DE-4A86-953C-C5DF06F55597}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF05889B-34DE-4A86-953C-C5DF06F55597}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF05889B-34DE-4A86-953C-C5DF06F55597}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E398BE9-710D-4AC5-BBBA-D3695E642D8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E398BE9-710D-4AC5-BBBA-D3695E642D8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E398BE9-710D-4AC5-BBBA-D3695E642D8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E398BE9-710D-4AC5-BBBA-D3695E642D8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -596,6 +604,7 @@ Global
 		{55D95A46-4BA7-41EF-8B37-354D0C820C57} = {E15DEB00-3411-430D-9ECC-AC1FDDBAC4EA}
 		{B53E9B45-73C4-4852-ABB8-7DB41934B74D} = {E15DEB00-3411-430D-9ECC-AC1FDDBAC4EA}
 		{CF05889B-34DE-4A86-953C-C5DF06F55597} = {E15DEB00-3411-430D-9ECC-AC1FDDBAC4EA}
+		{7E398BE9-710D-4AC5-BBBA-D3695E642D8D} = {9A07107A-EB85-4D4B-B52C-102A37FCB5A8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {66B5FCF4-B08E-4650-B252-2FC19C42B82D}
