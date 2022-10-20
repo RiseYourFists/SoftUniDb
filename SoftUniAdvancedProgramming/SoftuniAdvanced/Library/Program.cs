@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.Immutable;
+using System.Linq;
 
 namespace IteratorsAndComparators
 {
@@ -16,8 +19,9 @@ namespace IteratorsAndComparators
 
             foreach (var book in libraryTwo)
             {
-                Console.WriteLine(book.Title);
+                Console.WriteLine(book);
             }
+
         }
     }
 }

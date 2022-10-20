@@ -6,6 +6,7 @@ public class Library : IEnumerable<Book>
     public Library(params Book[] books)
     {
         this.books = new List<Book>(books);
+        this.books.Sort();
     }
 
     private List<Book> books;
@@ -14,6 +15,7 @@ public class Library : IEnumerable<Book>
 
     IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
+    public void Sort() => books.Sort();
 
     private class LibraryIterator : IEnumerator<Book>
     {
