@@ -15,7 +15,7 @@ public class Library : IEnumerable<Book>
 
     IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
-    public void Sort() => books.Sort();
+    public void Sort() => books.Sort(new BookComparator());
 
     private class LibraryIterator : IEnumerator<Book>
     {
