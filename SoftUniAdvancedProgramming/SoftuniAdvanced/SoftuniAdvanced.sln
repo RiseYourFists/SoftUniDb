@@ -227,7 +227,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tuple", "Tuple\Tuple.csproj
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IteratorsAndComperators", "IteratorsAndComperators", "{F70B5307-B935-4260-81C4-C377DBD9E3C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IteratorsAndComparators", "Library\IteratorsAndComparators.csproj", "{B7956F19-7704-4D0F-BA6A-5603A10402E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IteratorsAndComparators", "Library\IteratorsAndComparators.csproj", "{B7956F19-7704-4D0F-BA6A-5603A10402E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListyIterator", "ListyIterator\ListyIterator.csproj", "{26925820-CF9B-46A5-A33E-B2D6E10BCCB6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -623,6 +625,10 @@ Global
 		{B7956F19-7704-4D0F-BA6A-5603A10402E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7956F19-7704-4D0F-BA6A-5603A10402E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7956F19-7704-4D0F-BA6A-5603A10402E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26925820-CF9B-46A5-A33E-B2D6E10BCCB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26925820-CF9B-46A5-A33E-B2D6E10BCCB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26925820-CF9B-46A5-A33E-B2D6E10BCCB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26925820-CF9B-46A5-A33E-B2D6E10BCCB6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -725,6 +731,7 @@ Global
 		{E5E528F7-2DB3-4AB9-8177-E6FB52C3E1F4} = {22F9FF0D-6E2F-454E-AACA-BD096FC83521}
 		{8946FC55-BDBC-4F4A-B3BE-34328A35D810} = {22F9FF0D-6E2F-454E-AACA-BD096FC83521}
 		{B7956F19-7704-4D0F-BA6A-5603A10402E8} = {F70B5307-B935-4260-81C4-C377DBD9E3C8}
+		{26925820-CF9B-46A5-A33E-B2D6E10BCCB6} = {F70B5307-B935-4260-81C4-C377DBD9E3C8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {66B5FCF4-B08E-4650-B252-2FC19C42B82D}
