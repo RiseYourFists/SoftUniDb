@@ -6,7 +6,7 @@ using System.Text;
 
 namespace IteratosAndComparators
 {
-    public class ListyIterator<T> : IEnumerator<T>
+    public class ListyIterator<T> : IEnumerable<T>
     {
         public ListyIterator(T[] collection)
         {
@@ -42,8 +42,14 @@ namespace IteratosAndComparators
 
         public void Reset()=> index = 0;
 
-        public void Dispose() { }
+        public IEnumerator<T> GetEnumerator()
+        {
+            foreach (var item in Collection)
+            {
+                yield return item;
+            }
+        }
 
-        object IEnumerator.Current => Current;
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
 }

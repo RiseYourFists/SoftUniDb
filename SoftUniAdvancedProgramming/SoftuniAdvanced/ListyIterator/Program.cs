@@ -24,6 +24,13 @@ namespace IteratosAndComparators
                     case "Move":
                         Console.WriteLine(collection.Move());
                         break;
+                    case "PrintAll":
+                        foreach (var item in collection)
+                        {
+                            Console.Write($"{item} ");
+                        }
+                        Console.WriteLine();
+                        break;
                 }
 
                 command = Console.ReadLine();
