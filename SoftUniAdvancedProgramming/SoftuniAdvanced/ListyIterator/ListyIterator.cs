@@ -20,7 +20,15 @@ namespace IteratosAndComparators
 
         private int index;
 
-        public bool Move() => MoveNext();
+        public bool Move()
+        {
+            if (HasNext())
+            {
+                MoveNext();
+                return true;
+            }
+            return false;
+        }
 
         public bool HasNext() => index + 1 < Collection.Count;
 
