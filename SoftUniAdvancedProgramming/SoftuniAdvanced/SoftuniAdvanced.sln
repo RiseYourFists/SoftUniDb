@@ -233,6 +233,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListyIterator", "ListyItera
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomStack", "CustomStack\CustomStack.csproj", "{31CF59D2-5E45-4BB0-9593-8BC88D08F585}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Froggy", "Froggy\Froggy.csproj", "{0749A840-4438-4F04-AA6A-3F579CAF934A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -635,6 +637,10 @@ Global
 		{31CF59D2-5E45-4BB0-9593-8BC88D08F585}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31CF59D2-5E45-4BB0-9593-8BC88D08F585}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31CF59D2-5E45-4BB0-9593-8BC88D08F585}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0749A840-4438-4F04-AA6A-3F579CAF934A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0749A840-4438-4F04-AA6A-3F579CAF934A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0749A840-4438-4F04-AA6A-3F579CAF934A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0749A840-4438-4F04-AA6A-3F579CAF934A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -739,6 +745,7 @@ Global
 		{B7956F19-7704-4D0F-BA6A-5603A10402E8} = {F70B5307-B935-4260-81C4-C377DBD9E3C8}
 		{26925820-CF9B-46A5-A33E-B2D6E10BCCB6} = {F70B5307-B935-4260-81C4-C377DBD9E3C8}
 		{31CF59D2-5E45-4BB0-9593-8BC88D08F585} = {F70B5307-B935-4260-81C4-C377DBD9E3C8}
+		{0749A840-4438-4F04-AA6A-3F579CAF934A} = {F70B5307-B935-4260-81C4-C377DBD9E3C8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {66B5FCF4-B08E-4650-B252-2FC19C42B82D}
