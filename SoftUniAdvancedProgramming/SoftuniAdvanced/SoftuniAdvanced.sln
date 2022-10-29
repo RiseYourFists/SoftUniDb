@@ -231,13 +231,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IteratorsAndComparators", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListyIterator", "ListyIterator\ListyIterator.csproj", "{26925820-CF9B-46A5-A33E-B2D6E10BCCB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomStack", "CustomStack\CustomStack.csproj", "{31CF59D2-5E45-4BB0-9593-8BC88D08F585}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomStack", "CustomStack\CustomStack.csproj", "{31CF59D2-5E45-4BB0-9593-8BC88D08F585}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Froggy", "Froggy\Froggy.csproj", "{0749A840-4438-4F04-AA6A-3F579CAF934A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Froggy", "Froggy\Froggy.csproj", "{0749A840-4438-4F04-AA6A-3F579CAF934A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComparingObject", "ComparingObject\ComparingObject.csproj", "{6D45A1EA-E88B-4A03-A4B3-9835DF9E17DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComparingObject", "ComparingObject\ComparingObject.csproj", "{6D45A1EA-E88B-4A03-A4B3-9835DF9E17DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomComparator", "CustomComparator\CustomComparator.csproj", "{9404C009-131F-42AE-A47C-2A39BC2A1DC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomComparator", "CustomComparator\CustomComparator.csproj", "{9404C009-131F-42AE-A47C-2A39BC2A1DC2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BasicAlgorithms", "BasicAlgorithms", "{ECD1DD4B-BF21-4ECA-90E9-265B313E5B90}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecursiveArraySum", "RecursiveArraySum\RecursiveArraySum.csproj", "{3D3C7DFA-AF49-4906-AF00-3DF0B8919A14}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -653,6 +657,10 @@ Global
 		{9404C009-131F-42AE-A47C-2A39BC2A1DC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9404C009-131F-42AE-A47C-2A39BC2A1DC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9404C009-131F-42AE-A47C-2A39BC2A1DC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D3C7DFA-AF49-4906-AF00-3DF0B8919A14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D3C7DFA-AF49-4906-AF00-3DF0B8919A14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D3C7DFA-AF49-4906-AF00-3DF0B8919A14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D3C7DFA-AF49-4906-AF00-3DF0B8919A14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -760,6 +768,7 @@ Global
 		{0749A840-4438-4F04-AA6A-3F579CAF934A} = {F70B5307-B935-4260-81C4-C377DBD9E3C8}
 		{6D45A1EA-E88B-4A03-A4B3-9835DF9E17DD} = {F70B5307-B935-4260-81C4-C377DBD9E3C8}
 		{9404C009-131F-42AE-A47C-2A39BC2A1DC2} = {F70B5307-B935-4260-81C4-C377DBD9E3C8}
+		{3D3C7DFA-AF49-4906-AF00-3DF0B8919A14} = {ECD1DD4B-BF21-4ECA-90E9-265B313E5B90}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {66B5FCF4-B08E-4650-B252-2FC19C42B82D}
