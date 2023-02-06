@@ -15,9 +15,16 @@ namespace DemoDb
                             ,[LastName]
                             ,[JobTitle]
                             ,[Salary]
-                          FROM [Employees]";
+                          FROM [Employees]
+                          WHERE [Salary] > @Size";
+
+            Console.Write("Salary above?: ");
+            var salarySize = decimal.Parse(Console.ReadLine());
+            var parameter = new SqlParameter("@Size", salarySize);
 
             var command = new SqlCommand(qurey, connection);
+            command.Parameters.Add(parameter);
+
             using var reader = command.ExecuteReader();
             var counter = 1;
             while (reader.Read())
