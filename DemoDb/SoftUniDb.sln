@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ADO.NET", "ADO.NET", "{A730
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InitialSetUp", "InitialSetUp\InitialSetUp.csproj", "{42CE9971-D748-4D4C-93BC-B1F107D2B32D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VillianNames", "VillianNames\VillianNames.csproj", "{EB67D93E-814F-45E4-A244-6B225DC1D80E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{42CE9971-D748-4D4C-93BC-B1F107D2B32D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42CE9971-D748-4D4C-93BC-B1F107D2B32D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42CE9971-D748-4D4C-93BC-B1F107D2B32D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB67D93E-814F-45E4-A244-6B225DC1D80E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB67D93E-814F-45E4-A244-6B225DC1D80E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB67D93E-814F-45E4-A244-6B225DC1D80E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB67D93E-814F-45E4-A244-6B225DC1D80E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,6 +36,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{F31E05BE-3A1A-4852-A72D-342A47355523} = {A730B86F-6CFF-40A6-8249-33A39FF32A03}
 		{42CE9971-D748-4D4C-93BC-B1F107D2B32D} = {A730B86F-6CFF-40A6-8249-33A39FF32A03}
+		{EB67D93E-814F-45E4-A244-6B225DC1D80E} = {A730B86F-6CFF-40A6-8249-33A39FF32A03}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E05CEB43-98A9-4E79-A85D-809A4D10F41B}
