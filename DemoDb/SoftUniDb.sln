@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoDb", "DemoDb\DemoDb.csproj", "{F31E05BE-3A1A-4852-A72D-342A47355523}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoDb", "DemoDb\DemoDb.csproj", "{F31E05BE-3A1A-4852-A72D-342A47355523}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ADO.NET", "ADO.NET", "{A730B86F-6CFF-40A6-8249-33A39FF32A03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InitialSetUp", "InitialSetUp\InitialSetUp.csproj", "{42CE9971-D748-4D4C-93BC-B1F107D2B32D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +19,17 @@ Global
 		{F31E05BE-3A1A-4852-A72D-342A47355523}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F31E05BE-3A1A-4852-A72D-342A47355523}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F31E05BE-3A1A-4852-A72D-342A47355523}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42CE9971-D748-4D4C-93BC-B1F107D2B32D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42CE9971-D748-4D4C-93BC-B1F107D2B32D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42CE9971-D748-4D4C-93BC-B1F107D2B32D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42CE9971-D748-4D4C-93BC-B1F107D2B32D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F31E05BE-3A1A-4852-A72D-342A47355523} = {A730B86F-6CFF-40A6-8249-33A39FF32A03}
+		{42CE9971-D748-4D4C-93BC-B1F107D2B32D} = {A730B86F-6CFF-40A6-8249-33A39FF32A03}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E05CEB43-98A9-4E79-A85D-809A4D10F41B}
