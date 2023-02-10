@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace MinionNames
 {
-    public class Villains
+    public class Villain
     {
-        public Villains(SqlConnection connection)
+        public Villain(SqlConnection connection)
         {
             Connection = connection;
         }
