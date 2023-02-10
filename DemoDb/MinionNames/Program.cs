@@ -11,8 +11,9 @@ namespace MinionNames
             using var connection = new SqlConnection(Config.connectionString);
             connection.Open();
 
-            var minionNames = new MinionNames(connection);
+            var minionNames = new Villains(connection);
             Console.WriteLine(minionNames.GetMinionNamesOfVillain(1, "MinionNamesQuery"));
+
 
             connection.Close();
         }

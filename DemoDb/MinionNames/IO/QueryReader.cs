@@ -47,6 +47,10 @@ namespace MinionNames
             }
             return true;
         }
+
+        public bool InitializeReader()
+            => (this.GetOrCreatePath() && this.GetOrCreateFile());
+           
         public string ReadToEnd()
         {
             using var streamReader = new StreamReader(FullPath);
