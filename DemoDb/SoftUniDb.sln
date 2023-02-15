@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestApp", "TestApp\TestApp.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EFIntroduction", "EFIntroduction", "{D029AFA1-D251-40BA-9E78-FDC036F14CCA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftUni", "EFSoftUniDB\SoftUni.csproj", "{2BEDA57E-88DF-4893-8D59-FABE317A2CDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoftUni", "EFSoftUniDB\SoftUni.csproj", "{2BEDA57E-88DF-4893-8D59-FABE317A2CDA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
