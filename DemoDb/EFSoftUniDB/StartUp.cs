@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
@@ -12,7 +13,7 @@ namespace SoftUni
         static void Main(string[] args)
         {
             var dbContext = new SoftUniContext();
-            var result = AddNewAddressToEmployee(dbContext);
+            var result = GetEmployeesInPeriod(dbContext);
             Console.WriteLine(result);
         }
 
@@ -108,6 +109,51 @@ namespace SoftUni
             }
 
             return sb.ToString();
+        }
+
+        public static string GetEmployeesInPeriod(SoftUniContext context)
+        {
+            var output = new StringBuilder();
+
+            var employees = context.Employees
+                .Where(e =>
+                    e.EmployeesProjects
+                        .Any(p => p.Project.StartDate.Year >= 2001
+                                            && p.Project.StartDate.Year <= 2003))
+                .Take(10)
+                .Select(e => new
+                {
+                    e.FirstName,
+                    e.LastName,
+                    ManagerFirstName = e.Manager.FirstName,
+                    ManagerLastName = e.Manager.LastName,
+                    Projects = e.EmployeesProjects.Select(p => new
+                    {
+                        p.Project.Name,
+                        p.Project.StartDate,
+                        p.Project.EndDate
+                    })
+
+                })
+                .ToArray();
+
+            foreach (var employee in employees)
+            {
+                output.AppendLine(
+                    $"{employee.FirstName} {employee.LastName} - Manager: {employee.ManagerFirstName} {employee.ManagerLastName}");
+                foreach (var project in employee.Projects)
+                {
+                    var startDate = project.StartDate.ToString("M/d/yyyy h:mm:ss tt", CultureInfo.InvariantCulture);
+
+                    var endDate = (!project.EndDate.HasValue)
+                        ? "not finished"
+                        : project.EndDate.Value
+                            .ToString("M/d/yyyy h:mm:ss tt", CultureInfo.InvariantCulture);
+
+                    output.AppendLine($"--{project.Name} - {startDate} - {endDate}");
+                }
+            }
+            return output.ToString();
         }
     }
 }
