@@ -13,7 +13,7 @@ namespace SoftUni
         static void Main(string[] args)
         {
             var dbContext = new SoftUniContext();
-            var result = GetEmployeesInPeriod(dbContext);
+            var result = GetEmployee147(dbContext);
             Console.WriteLine(result);
         }
 
@@ -153,6 +153,60 @@ namespace SoftUni
                     output.AppendLine($"--{project.Name} - {startDate} - {endDate}");
                 }
             }
+            return output.ToString();
+        }
+
+        public static string GetAddressesByTown(SoftUniContext context)
+        {
+            var output = new StringBuilder();
+
+            var addresses = context.Addresses
+                .OrderByDescending(a => a.Employees.Count)
+                .ThenBy(a => a.Town.Name)
+                .Take(10)
+                .Select(a => new
+                {
+                    a.AddressText,
+                    TownName = a.Town.Name,
+                    EmployeeCount = a.Employees.Count
+
+                })
+                .ToArray();
+
+            foreach (var address in addresses)
+            {
+                output.AppendLine($"{address.AddressText}, {address.TownName} - {address.EmployeeCount} employees");
+            }
+
+            return output.ToString();
+        }
+
+        public static string GetEmployee147(SoftUniContext context)
+        {
+            var output = new StringBuilder();
+
+            var employees = context.Employees
+                .Where(e => e.EmployeeId == 147)
+                .Select(e => new
+                {
+                    e.FirstName,
+                    e.LastName,
+                    e.JobTitle,
+                    Projects = e.EmployeesProjects.Where(p => p.EmployeeId == 147)
+                        .Select(p => new
+                        {
+                            ProjectName = p.Project.Name,
+                        })
+                })
+                .ToArray();
+
+            output.AppendLine($"{employees[0].FirstName} {employees[0].LastName} - {employees[0].JobTitle}");
+
+            foreach (var project in employees[0].Projects.OrderBy(p => p.ProjectName))
+            {
+                output.AppendLine(project.ProjectName);
+            }
+            
             return output.ToString();
         }
     }
