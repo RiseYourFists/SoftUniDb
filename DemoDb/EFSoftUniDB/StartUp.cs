@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,7 @@ namespace SoftUni
         static void Main(string[] args)
         {
             var dbContext = new SoftUniContext();
-            var result = DeleteProjectById(dbContext);
+            var result = RemoveTown(dbContext);
             Console.WriteLine(result);
         }
 
@@ -336,6 +337,42 @@ namespace SoftUni
 
             projects.ForEach(p => output.AppendLine(p));
             
+
+            return output.ToString().TrimEnd();
+        }
+
+        public static string RemoveTown(SoftUniContext context)
+        {
+            var output = new StringBuilder();
+
+            var townToDelete = context.Towns.First(t => t.Name == "Seattle");
+
+            var referredAddresses = context.Addresses
+                .Where(a => a.Town.TownId == townToDelete.TownId)
+                .ToArray();
+
+            var addressIds = new List<int?>();
+            var addressesCount = referredAddresses.Length;
+
+            foreach (var address in referredAddresses)
+            {
+                addressIds.Add(address.AddressId);
+            }
+
+            var employees = context.Employees
+                .Where(e => addressIds.Contains(e.AddressId))
+                .ToArray();
+
+            foreach (var employee in employees)
+            {
+                employee.AddressId = null;
+            }
+
+            context.Addresses.RemoveRange(referredAddresses);
+            context.Towns.Remove(townToDelete);
+            context.SaveChanges();
+
+            output.AppendLine($"{addressesCount} addresses in Seattle were deleted");
 
             return output.ToString().TrimEnd();
         }
