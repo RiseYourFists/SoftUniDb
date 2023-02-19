@@ -29,6 +29,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentSystem", "StudentSys
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentSystem.Tests", "StudentSystem.Tests\StudentSystem.Tests.csproj", "{DB26983F-F187-4401-988B-C1BD6D03291A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FootballBetting", "FootballBetting\FootballBetting.csproj", "{EE77B224-16C3-4E3E-9AD5-304818D25B1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FootballBetting.Tests", "FootballBetting.Tests\FootballBetting.Tests.csproj", "{B74C479F-C1F2-4F9F-9FCA-16427B786151}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +75,14 @@ Global
 		{DB26983F-F187-4401-988B-C1BD6D03291A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB26983F-F187-4401-988B-C1BD6D03291A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB26983F-F187-4401-988B-C1BD6D03291A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE77B224-16C3-4E3E-9AD5-304818D25B1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE77B224-16C3-4E3E-9AD5-304818D25B1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE77B224-16C3-4E3E-9AD5-304818D25B1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE77B224-16C3-4E3E-9AD5-304818D25B1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B74C479F-C1F2-4F9F-9FCA-16427B786151}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B74C479F-C1F2-4F9F-9FCA-16427B786151}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B74C479F-C1F2-4F9F-9FCA-16427B786151}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B74C479F-C1F2-4F9F-9FCA-16427B786151}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -85,6 +97,8 @@ Global
 		{2BEDA57E-88DF-4893-8D59-FABE317A2CDA} = {D029AFA1-D251-40BA-9E78-FDC036F14CCA}
 		{D8DDD9A7-AC88-40D8-A26E-B6B6D868908D} = {EEEAC679-6859-48E9-AF5D-DA5A4C941E67}
 		{DB26983F-F187-4401-988B-C1BD6D03291A} = {EEEAC679-6859-48E9-AF5D-DA5A4C941E67}
+		{EE77B224-16C3-4E3E-9AD5-304818D25B1E} = {EEEAC679-6859-48E9-AF5D-DA5A4C941E67}
+		{B74C479F-C1F2-4F9F-9FCA-16427B786151} = {EEEAC679-6859-48E9-AF5D-DA5A4C941E67}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E05CEB43-98A9-4E79-A85D-809A4D10F41B}
