@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using P03_FootballBetting.Data;
 
 namespace P03_FootballBetting
 {
@@ -6,7 +8,10 @@ namespace P03_FootballBetting
     {
         static void Main(string[] args)
         {
+            var context = new FootballBettingContext();
 
+            var players = context.Players
+                .Where(p => !p.IsInjured);
         }
     }
 }

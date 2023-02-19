@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FootballBetting\FootballBetting.csproj" />
+    <ProjectReference Include="..\FootballBetting\P03_FootballBetting.csproj" />
   </ItemGroup>
 
 </Project>

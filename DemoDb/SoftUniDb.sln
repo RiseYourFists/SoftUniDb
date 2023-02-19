@@ -25,13 +25,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoftUni", "EFSoftUniDB\Soft
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EntityRelations", "EntityRelations", "{EEEAC679-6859-48E9-AF5D-DA5A4C941E67}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentSystem", "StudentSystem\StudentSystem.csproj", "{D8DDD9A7-AC88-40D8-A26E-B6B6D868908D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentSystem", "StudentSystem\StudentSystem.csproj", "{D8DDD9A7-AC88-40D8-A26E-B6B6D868908D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentSystem.Tests", "StudentSystem.Tests\StudentSystem.Tests.csproj", "{DB26983F-F187-4401-988B-C1BD6D03291A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentSystem.Tests", "StudentSystem.Tests\StudentSystem.Tests.csproj", "{DB26983F-F187-4401-988B-C1BD6D03291A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FootballBetting", "FootballBetting\FootballBetting.csproj", "{EE77B224-16C3-4E3E-9AD5-304818D25B1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P03_FootballBetting", "FootballBetting\P03_FootballBetting.csproj", "{EE77B224-16C3-4E3E-9AD5-304818D25B1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FootballBetting.Tests", "FootballBetting.Tests\FootballBetting.Tests.csproj", "{B74C479F-C1F2-4F9F-9FCA-16427B786151}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FootballBetting.Tests", "FootballBetting.Tests\FootballBetting.Tests.csproj", "{B74C479F-C1F2-4F9F-9FCA-16427B786151}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P03_FootballBetting.Data.Models", "P03_FootballBetting.Data.Models\P03_FootballBetting.Data.Models.csproj", "{F61C92AE-0DCE-4D2D-ABC4-D9BEED2B9078}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P03_FootballBetting.Data", "P03_FootballBetting.Data\P03_FootballBetting.Data.csproj", "{23C86C13-5B01-42B1-839F-9C770CACFCB7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,6 +87,14 @@ Global
 		{B74C479F-C1F2-4F9F-9FCA-16427B786151}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B74C479F-C1F2-4F9F-9FCA-16427B786151}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B74C479F-C1F2-4F9F-9FCA-16427B786151}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F61C92AE-0DCE-4D2D-ABC4-D9BEED2B9078}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F61C92AE-0DCE-4D2D-ABC4-D9BEED2B9078}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F61C92AE-0DCE-4D2D-ABC4-D9BEED2B9078}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F61C92AE-0DCE-4D2D-ABC4-D9BEED2B9078}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23C86C13-5B01-42B1-839F-9C770CACFCB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23C86C13-5B01-42B1-839F-9C770CACFCB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23C86C13-5B01-42B1-839F-9C770CACFCB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23C86C13-5B01-42B1-839F-9C770CACFCB7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -99,6 +111,8 @@ Global
 		{DB26983F-F187-4401-988B-C1BD6D03291A} = {EEEAC679-6859-48E9-AF5D-DA5A4C941E67}
 		{EE77B224-16C3-4E3E-9AD5-304818D25B1E} = {EEEAC679-6859-48E9-AF5D-DA5A4C941E67}
 		{B74C479F-C1F2-4F9F-9FCA-16427B786151} = {EEEAC679-6859-48E9-AF5D-DA5A4C941E67}
+		{F61C92AE-0DCE-4D2D-ABC4-D9BEED2B9078} = {EEEAC679-6859-48E9-AF5D-DA5A4C941E67}
+		{23C86C13-5B01-42B1-839F-9C770CACFCB7} = {EEEAC679-6859-48E9-AF5D-DA5A4C941E67}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E05CEB43-98A9-4E79-A85D-809A4D10F41B}

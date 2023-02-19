@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using P03_FootballBetting.Data.Models;
+﻿using P03_FootballBetting.Data.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace P03_FootballBetting.Data
 {
