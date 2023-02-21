@@ -19,6 +19,13 @@ namespace MusicHub.Data
             
         }
 
+        public DbSet<Album> Albums { get; set; }
+        public DbSet<Performer> Performers { get; set; }
+        public DbSet<Producer> Producers { get; set; }
+        public DbSet<Song> Songs { get; set; }
+        public DbSet<SongPerformer> SongPerformers { get; set; }
+        public DbSet<Writer> Writers { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);

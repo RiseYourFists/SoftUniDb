@@ -22,7 +22,7 @@ namespace MusicHub.Data.Models
         [StringLength(50)]
         public string Pseudonym { get; set; }
 
-        [Column(TypeName = "varchar(15)")]
+        [Column(TypeName = "varchar(20)")]
         public string PhoneNumber { get; set; }
 
         public virtual ICollection<Album> Albums { get; set; }
