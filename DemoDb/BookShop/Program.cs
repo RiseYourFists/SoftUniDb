@@ -18,8 +18,8 @@ namespace BookShop
             var context = new BookShopContext();
 
             //DbInitializer.ResetDatabase(context);
-            var input = Console.ReadLine();
-            var books = GetBooksByAuthor(context, input);
+            var input = int.Parse(Console.ReadLine());
+            var books = CountBooks(context, input);
             Console.WriteLine(books);
 
         }
@@ -190,6 +190,15 @@ namespace BookShop
             books.ForEach(b => sb.AppendLine(b));
 
             return sb.ToString().TrimEnd();
+        }
+
+        public static int CountBooks(BookShopContext context, int lengthCheck)
+        {
+            var books = context.Books
+                .Where(b => b.Title.Length > lengthCheck)
+                .ToList();
+            
+            return books.Count;
         }
     }
 }
