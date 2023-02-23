@@ -19,8 +19,8 @@ namespace BookShop
 
             //DbInitializer.ResetDatabase(context);
             var input = Console.ReadLine();
-            var books = GetBooksReleasedBefore(context, input);
-            Console.WriteLine(books.Length);
+            var books = GetAuthorNamesEndingIn(context, input);
+            Console.WriteLine(books);
 
         }
 
@@ -141,6 +141,22 @@ namespace BookShop
                 .ToList();
 
             books.ForEach(b => sb.AppendLine($"{b.Title} - {b.EditionType} - ${b.Price:f2}"));
+
+            return sb.ToString().TrimEnd();
+        }
+
+        public static string GetAuthorNamesEndingIn(BookShopContext context, string input)
+        {
+            var sb = new StringBuilder();
+
+            var authors = context.Authors
+                .Where(a => a.FirstName.EndsWith(input))
+                .Select(a => $"{a.FirstName} {a.LastName}")
+                .ToList()
+                .OrderBy(a => a)
+                .ToList();
+
+            authors.ForEach(a => sb.AppendLine(a));
 
             return sb.ToString().TrimEnd();
         }
