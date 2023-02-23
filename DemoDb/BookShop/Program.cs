@@ -14,8 +14,8 @@ namespace BookShop
         static void Main(string[] args)
         {
             var context = new BookShopContext();
-            //var command = Console.ReadLine();
-            var books = GetBooksByPrice(context);
+            var year = int.Parse(Console.ReadLine());
+            var books = GetBooksNotReleasedIn(context, year);
             Console.WriteLine(books);
 
         }
@@ -70,6 +70,21 @@ namespace BookShop
             books.ForEach(b => 
                 sb.AppendLine($"{b.Title} - ${b.Price:f2}")
                 );
+
+            return sb.ToString().TrimEnd();
+        }
+
+        public static string GetBooksNotReleasedIn(BookShopContext context, int year)
+        {
+            var sb = new StringBuilder();
+
+            var books = context.Books
+                .Where(b => b.ReleaseDate.HasValue
+                            && b.ReleaseDate.Value.Year != year)
+                .Select(b => b.Title)
+                .ToList();
+
+            books.ForEach(b => sb.AppendLine(b));
 
             return sb.ToString().TrimEnd();
         }
