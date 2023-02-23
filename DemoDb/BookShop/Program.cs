@@ -6,6 +6,7 @@ using BookShop.Data;
 using BookShop.Initializer;
 using BookShop.Models;
 using BookShop.Models.Enums;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookShop
 {
@@ -14,8 +15,8 @@ namespace BookShop
         static void Main(string[] args)
         {
             var context = new BookShopContext();
-            var year = int.Parse(Console.ReadLine());
-            var books = GetBooksNotReleasedIn(context, year);
+            var input = Console.ReadLine();
+            var books = GetBooksByCategory(context, input);
             Console.WriteLine(books);
 
         }
@@ -85,6 +86,30 @@ namespace BookShop
                 .ToList();
 
             books.ForEach(b => sb.AppendLine(b));
+
+            return sb.ToString().TrimEnd();
+        }
+
+        public static string GetBooksByCategory(BookShopContext context, string input)
+        {
+            var sb = new StringBuilder();
+
+            var categoryNames = input
+                .Split(" ", StringSplitOptions.RemoveEmptyEntries)
+                .Select(c => c.ToLower())
+                .ToArray();
+
+            var books = context.BookCategories
+                .Include(bc => bc.Category)
+                .Include(bc => bc.Book)
+                .Where(bc => categoryNames
+                    .Contains(bc.Category.Name.ToLower()))
+                .Select(bc => bc.Book.Title)
+                .OrderBy(b => b)
+                .ToList();
+
+            books.ForEach(b => sb.AppendLine(b));
+
 
             return sb.ToString().TrimEnd();
         }
