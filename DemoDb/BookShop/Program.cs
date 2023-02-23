@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using BookShop.Data;
-using BookShop.Initializer;
 using BookShop.Models;
+using BookShop.Initializer;
 using BookShop.Models.Enums;
+using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookShop
@@ -19,7 +19,7 @@ namespace BookShop
 
             //DbInitializer.ResetDatabase(context);
             //var input = int.Parse(Console.ReadLine());
-            var books = CountCopiesByAuthor(context);
+            var books = GetTotalProfitByCategory(context);
             Console.WriteLine(books);
 
         }
@@ -215,10 +215,31 @@ namespace BookShop
                 .OrderByDescending(a => a.TotalCopies)
                 .ToList();
 
-                
-
             authors.ForEach(a => sb.AppendLine($"{a.FullName} - {a.TotalCopies}"));
             
+            return sb.ToString().TrimEnd();
+        }
+
+        public static string GetTotalProfitByCategory(BookShopContext context)
+        {
+            var sb = new StringBuilder();
+
+            var books = context.Categories
+                .Include(c => c.CategoryBooks)
+                .ThenInclude(cb => cb.Book)
+                .Select(c => new
+                {
+                    Category = c.Name,
+                    TotalProfit = c.CategoryBooks
+                        .Select(cb => cb.Book.Price * cb.Book.Copies)
+                        .Sum()
+                })
+                .OrderByDescending(c => c.TotalProfit)
+                .ThenBy(c => c.Category)
+                .ToList();
+
+            books.ForEach(b => sb.AppendLine($"{b.Category} ${b.TotalProfit:f2}"));
+
             return sb.ToString().TrimEnd();
         }
     }
