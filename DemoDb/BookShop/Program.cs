@@ -14,10 +14,13 @@ namespace BookShop
     {
         static void Main(string[] args)
         {
+            
             var context = new BookShopContext();
+
+            //DbInitializer.ResetDatabase(context);
             var input = Console.ReadLine();
-            var books = GetBooksByCategory(context, input);
-            Console.WriteLine(books);
+            var books = GetBooksReleasedBefore(context, input);
+            Console.WriteLine(books.Length);
 
         }
 
@@ -110,6 +113,34 @@ namespace BookShop
 
             books.ForEach(b => sb.AppendLine(b));
 
+
+            return sb.ToString().TrimEnd();
+        }
+
+        public static string GetBooksReleasedBefore(BookShopContext context, string date)
+        {
+            var sb = new StringBuilder();
+
+            var tokens = date.Split("-", StringSplitOptions.RemoveEmptyEntries);
+            var day = int.Parse(tokens[0]);
+            var month = int.Parse(tokens[1]);
+            var year = int.Parse(tokens[2]);
+
+            var filter = new DateTime(year, month, day);
+
+            var books = context.Books
+                .Where(b => b.ReleaseDate.HasValue
+                && b.ReleaseDate.Value < filter)
+                .OrderByDescending(b => b.ReleaseDate)
+                .Select(b => new
+                {
+                    b.Title,
+                    b.EditionType,
+                    b.Price,
+                })
+                .ToList();
+
+            books.ForEach(b => sb.AppendLine($"{b.Title} - {b.EditionType} - ${b.Price:f2}"));
 
             return sb.ToString().TrimEnd();
         }
