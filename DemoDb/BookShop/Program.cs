@@ -14,8 +14,8 @@ namespace BookShop
         static void Main(string[] args)
         {
             var context = new BookShopContext();
-            var command = Console.ReadLine();
-            var books = GetBooksByAgeRestriction(context, command);
+            //var command = Console.ReadLine();
+            var books = GetBooksByPrice(context);
             Console.WriteLine(books);
 
         }
@@ -38,6 +38,38 @@ namespace BookShop
                 .ToList();
 
             book.ForEach(b => sb.AppendLine(b));
+
+            return sb.ToString().TrimEnd();
+        }
+
+        public static string GetGoldenBooks(BookShopContext context)
+        {
+            var sb = new StringBuilder();
+
+            var books = context.Books
+                .Where(b => b.EditionType == EditionType.Gold
+                              && b.Copies < 5000)
+                .Select(b => b.Title)
+                .ToList();
+
+            books.ForEach(b => sb.AppendLine(b));
+
+            return sb.ToString().TrimEnd();
+        }
+
+        public static string GetBooksByPrice(BookShopContext context)
+        {
+            var sb = new StringBuilder();
+
+            var books = context.Books
+                .Where(b => b.Price > 40)
+                .OrderByDescending(b => b.Price)
+                .Select(b => new { b.Title, b.Price })
+                .ToList();
+
+            books.ForEach(b => 
+                sb.AppendLine($"{b.Title} - ${b.Price:f2}")
+                );
 
             return sb.ToString().TrimEnd();
         }
