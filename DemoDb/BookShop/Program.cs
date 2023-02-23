@@ -18,8 +18,8 @@ namespace BookShop
             var context = new BookShopContext();
 
             //DbInitializer.ResetDatabase(context);
-            var input = int.Parse(Console.ReadLine());
-            var books = CountBooks(context, input);
+            //var input = int.Parse(Console.ReadLine());
+            var books = CountCopiesByAuthor(context);
             Console.WriteLine(books);
 
         }
@@ -199,6 +199,27 @@ namespace BookShop
                 .ToList();
             
             return books.Count;
+        }
+
+        public static string CountCopiesByAuthor(BookShopContext context)
+        {
+            var sb = new StringBuilder();
+
+            var authors = context.Authors
+                .Include(a => a.Books)
+                .Select(a => new
+                {
+                    FullName = $"{a.FirstName} {a.LastName}",
+                    TotalCopies = a.Books.Select(b => b.Copies).Sum()
+                })
+                .OrderByDescending(a => a.TotalCopies)
+                .ToList();
+
+                
+
+            authors.ForEach(a => sb.AppendLine($"{a.FullName} - {a.TotalCopies}"));
+            
+            return sb.ToString().TrimEnd();
         }
     }
 }
