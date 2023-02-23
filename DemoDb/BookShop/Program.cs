@@ -19,7 +19,7 @@ namespace BookShop
 
             //DbInitializer.ResetDatabase(context);
             var input = Console.ReadLine();
-            var books = GetBookTitlesContaining(context, input);
+            var books = GetBooksByAuthor(context, input);
             Console.WriteLine(books);
 
         }
@@ -169,6 +169,22 @@ namespace BookShop
                 .Where(b => b.Title.ToLower().Contains(input.ToLower()))
                 .Select(b => b.Title)
                 .OrderBy(b => b)
+                .ToList();
+
+            books.ForEach(b => sb.AppendLine(b));
+
+            return sb.ToString().TrimEnd();
+        }
+
+        public static string GetBooksByAuthor(BookShopContext context, string input)
+        {
+            var sb = new StringBuilder();
+
+            var books = context.Books
+                .Include(b => b.Author)
+                .Where(b => b.Author.LastName.ToLower().StartsWith(input.ToLower()))
+                .OrderBy(b => b.BookId)
+                .Select(b => $"{b.Title} ({b.Author.FirstName} {b.Author.LastName})")
                 .ToList();
 
             books.ForEach(b => sb.AppendLine(b));
