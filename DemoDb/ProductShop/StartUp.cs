@@ -17,16 +17,15 @@ namespace ProductShop
         {
             var context = new ProductShopContext();
 
-            directory = InitializeOutputDirectory("products-in-range.json");
+            directory = InitializeOutputDirectory("user-sold-products.json");
             
-            var json = GetProductsInRange(context);
+            var json = GetSoldProducts(context);
             File.WriteAllText(directory, json);
         }
 
         public static string ImportUsers(ProductShopContext context, string inputJson)
         {
-            mapper = new Mapper(new MapperConfiguration(cfg
-                => cfg.AddProfile(typeof(ProductShopProfile))));
+            InitializeMapper();
 
             var jsonUsersData = JsonConvert.DeserializeObject<ImportUserDto[]>(inputJson);
 
@@ -45,8 +44,7 @@ namespace ProductShop
 
         public static string ImportProducts(ProductShopContext context, string inputJson)
         {
-            mapper = new Mapper(new MapperConfiguration(cfg 
-                => cfg.AddProfile(typeof(ProductShopProfile))));
+            InitializeMapper();
 
             var productsJsonData = JsonConvert
                 .DeserializeObject<ImportProductDto[]>(inputJson);
@@ -69,8 +67,7 @@ namespace ProductShop
 
         public static string ImportCategories(ProductShopContext context, string inputJson)
         {
-            mapper = new Mapper(new MapperConfiguration(cfg 
-                => cfg.AddProfile(typeof(ProductShopProfile))));
+            InitializeMapper();
 
             var categoriesJsonData = JsonConvert.DeserializeObject<ImportCategoryDto[]>(inputJson);
 
@@ -94,8 +91,7 @@ namespace ProductShop
 
         public static string ImportCategoryProducts(ProductShopContext context, string inputJson)
         {
-            mapper = new Mapper(new MapperConfiguration(cfg 
-                => cfg.AddProfile(typeof(ProductShopProfile))));
+            InitializeMapper();
 
             var categoryProductsJsonData = JsonConvert.DeserializeObject<ImportCategoryProductDto[]>(inputJson);
 
@@ -120,8 +116,7 @@ namespace ProductShop
 
         public static string GetProductsInRange(ProductShopContext context)
         {
-            mapper = new Mapper(new MapperConfiguration(cfg 
-                => cfg.AddProfile(typeof(ProductShopProfile))));
+            InitializeMapper();
 
             var products = context.Products
                 .Where(p => p.Price >= 500 && p.Price <= 1000)
@@ -132,6 +127,26 @@ namespace ProductShop
             var result = JsonConvert.SerializeObject(products, Formatting.Indented);
             
             return result;
+        }
+
+        public static string GetSoldProducts(ProductShopContext context)
+        {
+            InitializeMapper();
+
+            var users = context.Users
+                .Where(u => u.ProductsSold.Any(p => p.BuyerId.HasValue))
+                .OrderBy(u => u.LastName)
+                .ThenBy(u => u.FirstName)
+                .ProjectTo<ExportSellerDto>(mapper.ConfigurationProvider)
+                .ToArray();
+
+            var output = JsonConvert.SerializeObject(users, Formatting.Indented);
+            return output;
+        }
+
+        public static void InitializeMapper()
+        {
+            mapper = new Mapper(new MapperConfiguration(cfg => cfg.AddProfile(typeof(ProductShopProfile))));
         }
 
         public static string InitializeInputDirectory(string fileName)
