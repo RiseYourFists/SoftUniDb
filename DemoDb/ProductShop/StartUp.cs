@@ -17,9 +17,9 @@ namespace ProductShop
         {
             var context = new ProductShopContext();
 
-            directory = InitializeOutputDirectory("user-sold-products.json");
+            directory = InitializeOutputDirectory("categories-by-products.json");
             
-            var json = GetSoldProducts(context);
+            var json = GetCategoriesByProductsCount(context);
             File.WriteAllText(directory, json);
         }
 
@@ -144,6 +144,26 @@ namespace ProductShop
             return output;
         }
 
+        public static string GetCategoriesByProductsCount(ProductShopContext context)
+        {
+            InitializeMapper();
+
+            var categories = context.Categories
+                .ProjectTo<ExportCategoriesDto>(mapper.ConfigurationProvider)
+                .OrderByDescending(c => c.ProductsCount)
+                .ToList();
+
+            categories.ForEach(c => 
+            { 
+               c.AveragePrice = Math.Round(c.AveragePrice, 2);
+               c.TotalRevenue = Math.Round(c.TotalRevenue, 2);
+            });
+
+            var output = JsonConvert.SerializeObject(categories, Formatting.Indented);
+
+            return output;
+        }
+
         public static void InitializeMapper()
         {
             mapper = new Mapper(new MapperConfiguration(cfg => cfg.AddProfile(typeof(ProductShopProfile))));
@@ -157,7 +177,7 @@ namespace ProductShop
 
         private static bool IsValid(object obj)
         {
-            var validationContext = new System.ComponentModel.DataAnnotations.ValidationContext(obj);
+            var validationContext = new ValidationContext(obj);
             var validationResult = new List<ValidationResult>();
 
             bool isValid = Validator.TryValidateObject(obj, validationContext, validationResult, true);
