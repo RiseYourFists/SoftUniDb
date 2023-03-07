@@ -1,6 +1,8 @@
 ﻿using System.Runtime.CompilerServices;
 using AutoMapper;
 using CarDealer.Data;
+using CarDealer.DTOs.Import.SupplierDtos;
+using CarDealer.Models;
 using Newtonsoft.Json;
 
 namespace CarDealer
@@ -12,15 +14,33 @@ namespace CarDealer
 
         public static void Main()
         {
+            directory = InitializeImportDirectory("suppliers.json");
+            var json = File.ReadAllText(directory);
 
+            var context = new CarDealerContext();
+
+            var output = ImportSuppliers(context,json);
+
+            Console.WriteLine(output);
         }
 
         /*                          Import Data                             */
         public static string ImportSuppliers(CarDealerContext context, string inputJson)
         {
-            throw new NotImplementedException();
+            InitializeMapper();
 
-            //return $"Successfully imported {Suppliers.Count}.";
+            var supplierJsonData = JsonConvert.DeserializeObject<ImportSupplierDto[]>(inputJson);
+
+            var suppliers = new List<Supplier>();
+            foreach (var supplierDto in supplierJsonData)
+            {
+                var supplier = mapper.Map<Supplier>(supplierDto);
+                suppliers.Add(supplier);
+            }
+
+            context.AddRange(suppliers);
+            context.SaveChanges();
+            return $"Successfully imported {suppliers.Count}.";
         }
 
         public static string ImportParts(CarDealerContext context, string inputJson)
