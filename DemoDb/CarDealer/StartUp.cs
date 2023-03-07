@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Runtime.CompilerServices;
 using AutoMapper;
 using CarDealer.Data;
 using CarDealer.DTOs.Import.SupplierDtos;
@@ -19,7 +20,7 @@ namespace CarDealer
 
             var context = new CarDealerContext();
 
-            var output = ImportSuppliers(context,json);
+            var output = ImportParts(context,json);
 
             Console.WriteLine(output);
         }
@@ -34,6 +35,11 @@ namespace CarDealer
             var suppliers = new List<Supplier>();
             foreach (var supplierDto in supplierJsonData)
             {
+                if (!IsValid(supplierDto))
+                {
+                    continue;
+                }
+
                 var supplier = mapper.Map<Supplier>(supplierDto);
                 suppliers.Add(supplier);
             }
@@ -134,5 +140,14 @@ namespace CarDealer
         
         public static string InitializeExportDirectory(string fileName)
             => Path.Combine("../../../Results/", fileName);
+
+        public static bool IsValid(object obj)
+        {
+            var validationContext = new ValidationContext(obj);
+            var validationResult = new List<ValidationResult>();
+
+            bool isValid = Validator.TryValidateObject(obj, validationContext, validationResult, true);
+            return isValid;
+        }
     }
 }
