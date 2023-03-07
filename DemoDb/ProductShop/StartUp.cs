@@ -3,7 +3,9 @@ using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Newtonsoft.Json;
 using ProductShop.Data;
-using ProductShop.DTOs.Export;
+using ProductShop.DTOs.Export.Categories;
+using ProductShop.DTOs.Export.Products;
+using ProductShop.DTOs.Export.Users;
 using ProductShop.DTOs.Import;
 using ProductShop.Models;
 
@@ -17,9 +19,9 @@ namespace ProductShop
         {
             var context = new ProductShopContext();
 
-            directory = InitializeOutputDirectory("categories-by-products.json");
+            directory = InitializeOutputDirectory("users-and-products.json");
             
-            var json = GetCategoriesByProductsCount(context);
+            var json = GetUsersWithProducts(context);
             File.WriteAllText(directory, json);
         }
 
@@ -160,6 +162,32 @@ namespace ProductShop
             });
 
             var output = JsonConvert.SerializeObject(categories, Formatting.Indented);
+
+            return output;
+        }
+
+        public static string GetUsersWithProducts(ProductShopContext context)
+        {
+            InitializeMapper();
+
+            var users = context.Users
+                .Where(u => u.ProductsSold.Any(p => p.BuyerId.HasValue))
+                .OrderByDescending(u => u.ProductsSold.Count(p => p.BuyerId.HasValue))
+                .ProjectTo<ExportUserShortDto>(mapper.ConfigurationProvider)
+                .ToArray();
+
+                var jsonSettings = new JsonSerializerSettings()
+                {
+                    NullValueHandling = NullValueHandling.Ignore
+                };
+
+                var allUsers = new ExportUserAllDto()
+                {
+                    UsersCount = users.Length,
+                    Users = users
+                };
+
+            var output = JsonConvert.SerializeObject(allUsers, Formatting.Indented, jsonSettings);
 
             return output;
         }

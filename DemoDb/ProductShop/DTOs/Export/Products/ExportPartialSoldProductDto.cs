@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace ProductShop.DTOs.Export
+namespace ProductShop.DTOs.Export.Products
 {
     [JsonObject]
     public class ExportPartialSoldProductDto
