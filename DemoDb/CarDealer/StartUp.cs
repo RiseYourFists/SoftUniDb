@@ -2,8 +2,10 @@
 using System.Runtime.CompilerServices;
 using AutoMapper;
 using CarDealer.Data;
+using CarDealer.DTOs.Import.PartDtos;
 using CarDealer.DTOs.Import.SupplierDtos;
 using CarDealer.Models;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Newtonsoft.Json;
 
 namespace CarDealer
@@ -15,12 +17,12 @@ namespace CarDealer
 
         public static void Main()
         {
-            directory = InitializeImportDirectory("suppliers.json");
+            directory = InitializeImportDirectory("cars.json");
             var json = File.ReadAllText(directory);
 
             var context = new CarDealerContext();
 
-            var output = ImportParts(context,json);
+            var output = ImportCars(context,json);
 
             Console.WriteLine(output);
         }
@@ -51,14 +53,38 @@ namespace CarDealer
 
         public static string ImportParts(CarDealerContext context, string inputJson)
         {
-            /*
-             * Import the parts from the provided file parts.json. If the supplierId doesn't exist, skip the record.
-             */
+            InitializeMapper();
 
-            throw new NotImplementedException();
+            var partsJsonData = JsonConvert.DeserializeObject<ImportPartDto[]>(inputJson);
 
-            // return $"Successfully imported {Parts.Count}.";
+            var parts = new List<Part>();
 
+            var suppliers = context.Suppliers.Count();
+
+            foreach (var partDto in partsJsonData)
+            {
+                if (!IsValid(partDto))
+                {
+                    continue;
+                }
+
+                if (!partDto.SupplierId.HasValue)
+                {
+                    continue;
+                }
+
+                if (partDto.SupplierId.Value > suppliers || partDto.SupplierId.Value <= 0)
+                {
+                    continue;
+                }
+                var part = mapper.Map<Part>(partDto);
+                parts.Add(part);
+            }
+
+            context.AddRange(parts);
+            context.SaveChanges();
+
+            return $"Successfully imported {parts.Count}.";
         }
 
         public static string ImportCars(CarDealerContext context, string inputJson)

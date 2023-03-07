@@ -31,7 +31,6 @@
     <Folder Include="DTOs\Import\CustomerDtos\" />
     <Folder Include="DTOs\Import\SaleDtos\" />
     <Folder Include="DTOs\Import\PartCarDtos\" />
-    <Folder Include="DTOs\Import\PartDtos\" />
     <Folder Include="Results\" />
   </ItemGroup>
 
