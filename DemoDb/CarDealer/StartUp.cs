@@ -1,18 +1,21 @@
-﻿using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Runtime.CompilerServices;
-using AutoMapper;
-using AutoMapper.QueryableExtensions;
+﻿using System.ComponentModel.DataAnnotations;
+
 using CarDealer.Data;
+using CarDealer.Models;
+
 using CarDealer.DTOs.Export.CustomerDtos;
+
 using CarDealer.DTOs.Import.CarDtos;
 using CarDealer.DTOs.Import.CustomerDtos;
 using CarDealer.DTOs.Import.PartDtos;
 using CarDealer.DTOs.Import.SaleDtos;
 using CarDealer.DTOs.Import.SupplierDtos;
-using CarDealer.Models;
-using Microsoft.EntityFrameworkCore.Diagnostics;
+
 using Newtonsoft.Json;
+using AutoMapper;
+using AutoMapper.QueryableExtensions;
+using CarDealer.DTOs.Export.CarDtos;
+using CarDealer.DTOs.Export.SupplierDtos;
 
 namespace CarDealer
 {
@@ -24,12 +27,12 @@ namespace CarDealer
         public static void Main()
         {
 
-            directory = InitializeExportDirectory("ordered-customers.json");
+            directory = InitializeExportDirectory("local-suppliers.json");
             //var json = File.ReadAllText(directory);
 
             var context = new CarDealerContext();
 
-            var output = GetOrderedCustomers(context);
+            var output = GetLocalSuppliers(context);
 
             //Console.WriteLine(output);
             File.WriteAllText(directory, output);
@@ -209,20 +212,31 @@ namespace CarDealer
 
         public static string GetCarsFromMakeToyota(CarDealerContext context)
         {
-            /*Get all cars from making Toyota and order them by model alphabetically and by traveled distance descending.*/
+            InitializeMapper();
 
-            throw new NotImplementedException();
+            var cars = context.Cars
+                .Where(c => c.Make == "Toyota")
+                .OrderBy(c => c.Model)
+                .ThenByDescending(c => c.TraveledDistance)
+                .ProjectTo<ExportCarDto>(mapper.ConfigurationProvider)
+                .ToArray();
 
-            //return json;
+            var json = JsonConvert.SerializeObject(cars, Formatting.None);
+
+            return json;
         }
 
         public static string GetLocalSuppliers(CarDealerContext context)
         {
-            /*Get all suppliers that do not import parts from abroad. Get their id, name and the number of parts they can offer to supply. */
+            InitializeMapper();
+            
+            var suppliers = context.Suppliers
+                .Where(s => !s.IsImporter)
+                .ProjectTo<ExportSupplierDto>(mapper.ConfigurationProvider);
 
-            throw new NotImplementedException();
+            var json = JsonConvert.SerializeObject(suppliers, Formatting.Indented);
 
-            //return  json;
+            return  json;
         }
 
         public static string GetCarsWithTheirListOfParts(CarDealerContext context)

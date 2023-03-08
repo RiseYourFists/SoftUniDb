@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using CarDealer.DTOs.Export.CarDtos;
 using CarDealer.DTOs.Export.CustomerDtos;
+using CarDealer.DTOs.Export.SupplierDtos;
 using CarDealer.DTOs.Import.CarDtos;
 using CarDealer.DTOs.Import.CustomerDtos;
 using CarDealer.DTOs.Import.PartDtos;
@@ -21,7 +23,7 @@ namespace CarDealer
                     mo.Condition(s => s.SupplierId.HasValue));
 
             this.CreateMap<ImportCarDto, Car>()
-                .ForMember(d => d.TravelledDistance, mo =>
+                .ForMember(d => d.TraveledDistance, mo =>
                     mo.MapFrom(s => s.TraveledDistance));
 
             this.CreateMap<ImportCustomerDto, Customer>();
@@ -31,6 +33,14 @@ namespace CarDealer
             this.CreateMap<Customer, ExportCustomerDto>()
                 .ForMember(d => d.BirthDate, mo => 
                     mo.MapFrom(s => s.BirthDate));
+
+            this.CreateMap<Car, ExportCarDto>()
+                .ForMember(d => d.TraveledDistance, mo =>
+                    mo.MapFrom(s => s.TraveledDistance));
+
+            this.CreateMap<Supplier, ExportSupplierDto>()
+                .ForMember(d => d.PartsCount, mo =>
+                    mo.MapFrom(s => s.Parts.Count));
         }
     }
 }
