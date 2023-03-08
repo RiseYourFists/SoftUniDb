@@ -2,6 +2,7 @@
 using System.Runtime.CompilerServices;
 using AutoMapper;
 using CarDealer.Data;
+using CarDealer.DTOs.Import.CarDtos;
 using CarDealer.DTOs.Import.PartDtos;
 using CarDealer.DTOs.Import.SupplierDtos;
 using CarDealer.Models;
@@ -89,10 +90,43 @@ namespace CarDealer
 
         public static string ImportCars(CarDealerContext context, string inputJson)
         {
-            throw new NotImplementedException();
+            InitializeMapper();
 
-            //return $"Successfully imported {Cars.Count}.";
+            var carJsonData = JsonConvert.DeserializeObject<ImportCarDto[]>(inputJson);
+
+            var cars = new List<Car>();
+
+            foreach (var importCarDto in carJsonData)
+            {
+                if (!IsValid(importCarDto))
+                {
+                    continue;
+                }
+
+                var car = mapper.Map<Car>(importCarDto);
+
+                var parts = context.Parts.Where(p => importCarDto.PartsId.Contains(p.Id)).ToList();
+
+                foreach (var part in parts)
+                {
+                    var carPart = new PartCar()
+                    {
+                        Car = car,
+                        Part = part
+                    };
+
+                    car.PartsCars.Add(carPart);
+                }
+
+                cars.Add(car);
+            }
+
+            context.AddRange(cars);
+            context.SaveChanges();
+
+            return $"Successfully imported {cars.Count}.";
         }
+
 
         public static string ImportCustomers(CarDealerContext context, string inputJson)
         {

@@ -27,10 +27,8 @@
     <Folder Include="DTOs\Export\PartDtos\" />
     <Folder Include="DTOs\Export\SaleDtos\" />
     <Folder Include="DTOs\Export\SupplierDtos\" />
-    <Folder Include="DTOs\Import\CarDtos\" />
     <Folder Include="DTOs\Import\CustomerDtos\" />
     <Folder Include="DTOs\Import\SaleDtos\" />
-    <Folder Include="DTOs\Import\PartCarDtos\" />
     <Folder Include="Results\" />
   </ItemGroup>
 
