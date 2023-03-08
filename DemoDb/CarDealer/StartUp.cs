@@ -1,9 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
 using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using CarDealer.Data;
+using CarDealer.DTOs.Export.CustomerDtos;
 using CarDealer.DTOs.Import.CarDtos;
+using CarDealer.DTOs.Import.CustomerDtos;
 using CarDealer.DTOs.Import.PartDtos;
+using CarDealer.DTOs.Import.SaleDtos;
 using CarDealer.DTOs.Import.SupplierDtos;
 using CarDealer.Models;
 using Microsoft.EntityFrameworkCore.Diagnostics;
@@ -18,14 +23,16 @@ namespace CarDealer
 
         public static void Main()
         {
-            directory = InitializeImportDirectory("cars.json");
-            var json = File.ReadAllText(directory);
+
+            directory = InitializeExportDirectory("ordered-customers.json");
+            //var json = File.ReadAllText(directory);
 
             var context = new CarDealerContext();
 
-            var output = ImportCars(context,json);
+            var output = GetOrderedCustomers(context);
 
-            Console.WriteLine(output);
+            //Console.WriteLine(output);
+            File.WriteAllText(directory, output);
         }
 
         /*                          Import Data                             */
@@ -130,27 +137,74 @@ namespace CarDealer
 
         public static string ImportCustomers(CarDealerContext context, string inputJson)
         {
-            throw new NotImplementedException();
+            InitializeMapper();
 
-            //return $"Successfully imported {Customers.Count}.";
+            var customersJsonData = JsonConvert.DeserializeObject<ImportCustomerDto[]>(inputJson);
+
+            var customers = new List<Customer>();
+
+            foreach (var importCustomerDto in customersJsonData)
+            {
+                if (!IsValid(importCustomerDto))
+                {
+                    continue;
+                }
+
+                var customer = mapper.Map<Customer>(importCustomerDto);
+                customers.Add(customer);
+            }
+
+            context.AddRange(customers);
+            context.SaveChanges();
+
+            return $"Successfully imported {customers.Count}.";
         }
 
         public static string ImportSales(CarDealerContext context, string inputJson)
         {
-            throw new NotImplementedException();
+            InitializeMapper();
 
-            //return $"Successfully imported {Sales.Count}.";
+            var salesJsonData = JsonConvert.DeserializeObject<ImportSaleDto[]>(inputJson);
+
+            var sales = new List<Sale>();
+
+            foreach (var importSaleDto in salesJsonData)
+            {
+                if (!IsValid(importSaleDto))
+                {
+                    continue;
+                }
+
+                var sale = mapper.Map<Sale>(importSaleDto);
+                sales.Add(sale);
+            }
+
+            sales.ForEach(s => context.Sales.Add(s));
+            context.SaveChanges();
+
+            return $"Successfully imported {sales.Count}.";
         }
 
         /*                           Export Data                            */
 
         public static string GetOrderedCustomers(CarDealerContext context)
         {
-            /*Get all customers ordered by their birth date ascending. If two customers are born on the same date first print those who are not young drivers (e.g., print experienced drivers first). */
+            InitializeMapper();
+            
+            var customers = context.Customers
+                .ProjectTo<ExportCustomerDto>(mapper.ConfigurationProvider)
+                .OrderBy(c => c.BirthDate)
+                .ThenBy(c => c.IsYoungDriver)
+                .ToArray();
 
-            throw new NotImplementedException();
+            var jsonSettings = new JsonSerializerSettings()
+            {
+                Formatting = Formatting.Indented,
+                Converters = new List<JsonConverter> { new DateTimeConverter() }
+            };
+            var json = JsonConvert.SerializeObject(customers, jsonSettings);
 
-            //return json;
+            return json;
         }
 
         public static string GetCarsFromMakeToyota(CarDealerContext context)
