@@ -15,7 +15,7 @@ namespace CarDealer.DTOs.Export.CarDtos
         public int CarId { get; set; }
 
         [JsonProperty("car")]
-        public ExportCarShortDto Car { get; set; }
+        public ExportCarJsonShortDto CarJson { get; set; }
 
         [JsonProperty("parts")]
         public ExportPartShortDto[] Parts { get; set; }

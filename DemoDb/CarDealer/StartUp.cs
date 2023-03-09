@@ -32,12 +32,12 @@ namespace CarDealer
         public static void Main()
         {
 
-            directory = InitializeExportDirectory("customers-total-sales.json");
+            directory = InitializeExportDirectory("sales-discounts.json");
             //var json = File.ReadAllText(directory);
 
             var context = new CarDealerContext();
 
-            var output = GetTotalSalesByCustomer(context);
+            var output = GetSalesWithAppliedDiscount(context);
 
             //Console.WriteLine(output);
             File.WriteAllText(directory, output);
@@ -267,14 +267,14 @@ namespace CarDealer
                 .ToArray();
 
             var cars = context.Cars
-                .ProjectTo<ExportCarShortDto>(mapper.ConfigurationProvider)
+                .ProjectTo<ExportCarJsonShortDto>(mapper.ConfigurationProvider)
                 .ToArray();
 
             
 
             foreach (var exportCarInfoDto in carInfo)
             {
-                exportCarInfoDto.Car = cars.First(c => c.Id == exportCarInfoDto.CarId);
+                exportCarInfoDto.CarJson = cars.First(c => c.Id == exportCarInfoDto.CarId);
             }
 
             var jsonSettings = new JsonSerializerSettings()
@@ -320,8 +320,36 @@ namespace CarDealer
 
         public static string GetSalesWithAppliedDiscount(CarDealerContext context)
         {
+            InitializeMapper();
 
-            return string.Empty;
+            var sales = context.Sales
+                .Take(10)
+                .Select(s => new ExportSalesDto()
+                {
+                    Car = new ExportCarShortDto()
+                    {
+                        Make = s.Car.Make,
+                        Model = s.Car.Model,
+                        TraveledDistance = s.Car.TraveledDistance
+                    },
+                    CustomerName = s.Customer.Name,
+                    Discount = s.Discount,
+                    Price = s.Car.PartsCars
+                        .Where(pc => pc.CarId == s.CarId)
+                        .Select(p => p.Part.Price)
+                        .Sum()
+                        
+                    
+                })
+                .ToArray();
+            var jsonSettings = new JsonSerializerSettings()
+            {
+                Formatting = Formatting.Indented,
+                Converters = new List<JsonConverter>() { new DecimalConverter() }
+            };
+            var json = JsonConvert.SerializeObject(sales, jsonSettings);
+
+            return json;
         }
 
         /*                             Helper Methods                       */

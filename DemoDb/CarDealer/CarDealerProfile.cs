@@ -45,7 +45,7 @@ namespace CarDealer
                 .ForMember(d => d.PartsCount, mo =>
                     mo.MapFrom(s => s.Parts.Count));
 
-            this.CreateMap<Car, ExportCarShortDto>();
+            this.CreateMap<Car, ExportCarJsonShortDto>();
             this.CreateMap<Part, ExportPartShortDto>();
 
             this.CreateMap<Customer, ExportCustomerSalesDto>()
@@ -63,7 +63,7 @@ namespace CarDealer
                 .ForMember(d => d.Price, mo =>
                     mo.MapFrom(s => s.Part.Price));
 
-
+            this.CreateMap<Car, ExportCarShortDto>();
 
         }
     }

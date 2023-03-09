@@ -22,7 +22,7 @@ namespace CarDealer.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("CarDealer.Models.Car", b =>
+            modelBuilder.Entity("CarDealer.Models.CarJson", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -172,7 +172,7 @@ namespace CarDealer.Migrations
 
             modelBuilder.Entity("CarDealer.Models.PartCar", b =>
                 {
-                    b.HasOne("CarDealer.Models.Car", "Car")
+                    b.HasOne("CarDealer.Models.CarJson", "CarJson")
                         .WithMany("PartsCars")
                         .HasForeignKey("CarId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -184,14 +184,14 @@ namespace CarDealer.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Car");
+                    b.Navigation("CarJson");
 
                     b.Navigation("Part");
                 });
 
             modelBuilder.Entity("CarDealer.Models.Sale", b =>
                 {
-                    b.HasOne("CarDealer.Models.Car", "Car")
+                    b.HasOne("CarDealer.Models.CarJson", "CarJson")
                         .WithMany("Sales")
                         .HasForeignKey("CarId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -203,12 +203,12 @@ namespace CarDealer.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Car");
+                    b.Navigation("CarJson");
 
                     b.Navigation("Customer");
                 });
 
-            modelBuilder.Entity("CarDealer.Models.Car", b =>
+            modelBuilder.Entity("CarDealer.Models.CarJson", b =>
                 {
                     b.Navigation("PartsCars");
 
