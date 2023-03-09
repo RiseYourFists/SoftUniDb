@@ -8,6 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20230308214259_TraveledDistanceTpyoFix.cs" />
+    <Compile Remove="Migrations\20230308214259_TraveledDistanceTpyoFix.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.1">
@@ -23,7 +28,6 @@
   <ItemGroup>
     <Folder Include="DTOs\Export\CustomerDtos\" />
     <Folder Include="DTOs\Export\PartCarDtos\" />
-    <Folder Include="DTOs\Export\PartDtos\" />
     <Folder Include="DTOs\Export\SaleDtos\" />
     <Folder Include="Results\" />
   </ItemGroup>

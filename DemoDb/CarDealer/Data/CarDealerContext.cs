@@ -35,6 +35,10 @@ namespace CarDealer.Data
             {
                 e.HasKey(k => new { k.CarId, k.PartId });
             });
+
+            modelBuilder.Entity<Car>(e =>
+                e.Property(p => p.TraveledDistance)
+                    .HasColumnName("TraveledDistance"));
         }
     }
 }

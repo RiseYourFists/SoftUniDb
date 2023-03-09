@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 using CarDealer.Data;
 using CarDealer.Models;
@@ -15,7 +16,9 @@ using Newtonsoft.Json;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using CarDealer.DTOs.Export.CarDtos;
+using CarDealer.DTOs.Export.PartDtos;
 using CarDealer.DTOs.Export.SupplierDtos;
+using Microsoft.EntityFrameworkCore;
 
 namespace CarDealer
 {
@@ -27,12 +30,12 @@ namespace CarDealer
         public static void Main()
         {
 
-            directory = InitializeExportDirectory("local-suppliers.json");
+            directory = InitializeExportDirectory("cars-and-parts.json");
             //var json = File.ReadAllText(directory);
 
             var context = new CarDealerContext();
 
-            var output = GetLocalSuppliers(context);
+            var output = GetCarsWithTheirListOfParts(context);
 
             //Console.WriteLine(output);
             File.WriteAllText(directory, output);
@@ -241,11 +244,46 @@ namespace CarDealer
 
         public static string GetCarsWithTheirListOfParts(CarDealerContext context)
         {
-            /*Get all cars along with their list of parts. For the car get only make, model and traveled distance and for the parts get only name and price (formatted to 2nd digit after the decimal point). */
+            InitializeMapper();
 
-            throw new NotImplementedException();
+            var carInfo = context.Cars
+                .Include(c => c.PartsCars)
+                .ThenInclude(pc => pc.Part)
+                .Select(c => new ExportCarInfoDto()
+                {
+                    CarId = c.Id,
+                    Parts = c.PartsCars
+                        .Where(pc => pc.CarId == c.Id)
+                        .Select( p => new ExportPartShortDto()
+                        {
+                            Name = p.Part.Name,
+                            Price = p.Part.Price
+                        })
+                        .ToArray()
+                })
+                .ToArray();
 
-            //return json;
+            var cars = context.Cars
+                .ProjectTo<ExportCarShortDto>(mapper.ConfigurationProvider)
+                .ToArray();
+
+            
+
+            foreach (var exportCarInfoDto in carInfo)
+            {
+                exportCarInfoDto.Car = cars.First(c => c.Id == exportCarInfoDto.CarId);
+            }
+
+            string format = "0.00";
+
+            var jsonSettings = new JsonSerializerSettings()
+            {
+                Formatting = Formatting.Indented
+            };
+
+            var json = JsonConvert.SerializeObject(carInfo, jsonSettings);
+
+            return json;
         }
 
         public static string GetTotalSalesByCustomer(CarDealerContext context)

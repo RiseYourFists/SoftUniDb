@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using CarDealer.DTOs.Export.CarDtos;
 using CarDealer.DTOs.Export.CustomerDtos;
+using CarDealer.DTOs.Export.PartDtos;
 using CarDealer.DTOs.Export.SupplierDtos;
 using CarDealer.DTOs.Import.CarDtos;
 using CarDealer.DTOs.Import.CustomerDtos;
@@ -41,6 +42,10 @@ namespace CarDealer
             this.CreateMap<Supplier, ExportSupplierDto>()
                 .ForMember(d => d.PartsCount, mo =>
                     mo.MapFrom(s => s.Parts.Count));
+
+            this.CreateMap<Car, ExportCarShortDto>();
+            this.CreateMap<Part, ExportPartShortDto>();
+
         }
     }
 }
