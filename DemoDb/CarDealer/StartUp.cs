@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-
+using System.Diagnostics.CodeAnalysis;
 using CarDealer.Data;
 using CarDealer.Models;
 
@@ -16,7 +16,9 @@ using Newtonsoft.Json;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using CarDealer.DTOs.Export.CarDtos;
+using CarDealer.DTOs.Export.PartCarDtos;
 using CarDealer.DTOs.Export.PartDtos;
+using CarDealer.DTOs.Export.SaleDtos;
 using CarDealer.DTOs.Export.SupplierDtos;
 using Microsoft.EntityFrameworkCore;
 
@@ -30,12 +32,12 @@ namespace CarDealer
         public static void Main()
         {
 
-            directory = InitializeExportDirectory("cars-and-parts.json");
+            directory = InitializeExportDirectory("customers-total-sales.json");
             //var json = File.ReadAllText(directory);
 
             var context = new CarDealerContext();
 
-            var output = GetCarsWithTheirListOfParts(context);
+            var output = GetTotalSalesByCustomer(context);
 
             //Console.WriteLine(output);
             File.WriteAllText(directory, output);
@@ -242,6 +244,7 @@ namespace CarDealer
             return  json;
         }
 
+        [SuppressMessage("ReSharper.DPA", "DPA0000: DPA issues")]
         public static string GetCarsWithTheirListOfParts(CarDealerContext context)
         {
             InitializeMapper();
@@ -274,8 +277,6 @@ namespace CarDealer
                 exportCarInfoDto.Car = cars.First(c => c.Id == exportCarInfoDto.CarId);
             }
 
-            string format = "0.00";
-
             var jsonSettings = new JsonSerializerSettings()
             {
                 Formatting = Formatting.Indented
@@ -288,11 +289,39 @@ namespace CarDealer
 
         public static string GetTotalSalesByCustomer(CarDealerContext context)
         {
-            /*Get all customers that have bought at least 1 car and get their names, bought cars count and total spent money on cars. Order the result list by total spent money descending then by total bought cars again in descending order.*/
+            InitializeMapper();
+            
+            var customerInfo = context.Customers
+                .Where(c => c.Sales.Any())
+                .ProjectTo<ExportCustomerSalesDto>(mapper.ConfigurationProvider)
+                .ToArray();
 
-            throw new NotImplementedException();
+            var parts = context.PartsCars
+                .ProjectTo<ExportPartCarDto>(mapper.ConfigurationProvider)
+                .ToArray();
 
-            //return json;
+            foreach (var exportCustomerSalesDto in customerInfo)
+            {
+                exportCustomerSalesDto.SpentMoney = parts
+                    .Where(p => exportCustomerSalesDto.CarIds
+                        .Contains(p.CarId)).Select(p => p.Price).Sum();
+            }
+
+            var result = customerInfo
+                .OrderByDescending(c => c.SpentMoney)
+                .ThenByDescending(c => c.BoughtCars)
+                .ToArray();
+
+            var json = JsonConvert
+                .SerializeObject(result, Formatting.Indented);
+
+            return json;
+        }
+
+        public static string GetSalesWithAppliedDiscount(CarDealerContext context)
+        {
+
+            return string.Empty;
         }
 
         /*                             Helper Methods                       */
