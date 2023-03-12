@@ -26,9 +26,7 @@
 
   <ItemGroup>
     <Folder Include="DTOs\Export\" />
-    <Folder Include="DTOs\Import\Category\" />
     <Folder Include="DTOs\Import\CategoryProducts\" />
-    <Folder Include="DTOs\Import\Product\" />
     <Folder Include="Results\" />
   </ItemGroup>
 

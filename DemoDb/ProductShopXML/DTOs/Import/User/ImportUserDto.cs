@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,12 +12,14 @@ namespace ProductShop.DTOs.Import.User
     public class ImportUserDto
     {
         [XmlElement("firstName")]
-        public string FirstName { get; set; }
+        [Required]
+        public string FirstName { get; set; } = null!;
 
         [XmlElement("lastName")]
-        public string LastName { get; set; }
+        [Required]
+        public string LastName { get; set; } = null!;
 
         [XmlElement("age")]
-        public int Age { get; set; }
+        public int? Age { get; set; }
     }
 }

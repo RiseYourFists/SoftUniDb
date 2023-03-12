@@ -2,6 +2,8 @@
 using ProductShop.Models;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
+using ProductShop.DTOs.Import.Category;
+using ProductShop.DTOs.Import.Product;
 using ProductShop.DTOs.Import.User;
 
 namespace ProductShop
@@ -13,11 +15,11 @@ namespace ProductShop
         {
             var context = new ProductShopContext();
             
-            directory = InitializeImportDirectory("users.xml");
+            directory = InitializeImportDirectory("categories.xml");
 
             var xmlData = File.ReadAllText(directory);
 
-            var output = ImportUsers(context, xmlData);
+            var output = ImportCategories(context, xmlData);
 
             Console.WriteLine(output);
         }
@@ -48,16 +50,67 @@ namespace ProductShop
 
         public static string ImportProducts(ProductShopContext context, string inputXml)
         {
-            throw new NotImplementedException();
+            var xmlRoot = new XmlRootAttribute("Products");
+            var xmlSerializer = new XmlSerializer(typeof(ImportProductDto[]), xmlRoot);
 
-            //return $"Successfully imported {products.Count}";
+            using var xmlReader = new StringReader(inputXml);
+            var xmlProductsData = (ImportProductDto[])xmlSerializer.Deserialize(xmlReader);
+
+            var products = new List<Product>();
+
+            foreach (var importProductDto in xmlProductsData)
+            {
+                if (!IsValid(importProductDto))
+                {
+                    continue;
+                }
+
+                var product = new Product()
+                {
+                    Name = importProductDto.Name,
+                    Price = importProductDto.Price,
+                    BuyerId = importProductDto.BuyerId,
+                    SellerId = importProductDto.SellerId,
+                };
+
+                products.Add(product);
+            }
+
+            context.Products.AddRange(products);
+            context.SaveChanges();
+
+            return $"Successfully imported {products.Count}";
         }
 
         public static string ImportCategories(ProductShopContext context, string inputXml)
         {
-            throw new NotImplementedException();
+            var xmlRoot = new XmlRootAttribute("Categories");
+            var serializer = new XmlSerializer(typeof(ImportCategoryDto[]), xmlRoot);
 
-            //return $"Successfully imported {categories.Count}";
+            using var xmlReader = new StringReader(inputXml);
+            var xmlCategoryData = (ImportCategoryDto[])serializer.Deserialize(xmlReader);
+
+            var categories = new List<Category>();
+
+            foreach (var importCategoryDto in xmlCategoryData)
+            {
+                if (!IsValid(importCategoryDto))
+                {
+                    continue;
+                }
+
+                var category = new Category()
+                {
+                    Name = importCategoryDto.Name,
+                };
+
+                categories.Add(category);
+            }
+
+            context.Categories.AddRange(categories);
+            context.SaveChanges();
+
+            return $"Successfully imported {categories.Count}";
         }
 
         public static string ImportCategoryProducts(ProductShopContext context, string inputXml)
