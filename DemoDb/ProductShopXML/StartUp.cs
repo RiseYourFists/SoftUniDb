@@ -3,6 +3,7 @@ using ProductShop.Models;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
 using ProductShop.DTOs.Import.Category;
+using ProductShop.DTOs.Import.CategoryProducts;
 using ProductShop.DTOs.Import.Product;
 using ProductShop.DTOs.Import.User;
 
@@ -15,11 +16,11 @@ namespace ProductShop
         {
             var context = new ProductShopContext();
             
-            directory = InitializeImportDirectory("categories.xml");
+            directory = InitializeImportDirectory("categories-products.xml");
 
             var xmlData = File.ReadAllText(directory);
 
-            var output = ImportCategories(context, xmlData);
+            var output = ImportCategoryProducts(context, xmlData);
 
             Console.WriteLine(output);
         }
@@ -115,9 +116,45 @@ namespace ProductShop
 
         public static string ImportCategoryProducts(ProductShopContext context, string inputXml)
         {
-            throw new NotImplementedException();
+            var xmlRoot = new XmlRootAttribute("CategoryProducts");
+            var xmlSerializer = new XmlSerializer(typeof(ImportCategoryProductDto[]), xmlRoot);
 
-            //return $"Successfully imported {categoryProducts.Count}";
+            var xmlReader = new StringReader(inputXml);
+            var xmlCategoryProductsData = (ImportCategoryProductDto[])xmlSerializer.Deserialize(xmlReader);
+
+            var productIds = context.Products
+                .Select(p => p.Id)
+                .ToArray();
+
+            var categoryIds = context.Categories
+                .Select(c => c.Id)
+                .ToArray();
+
+            var categoryProducts = new List<CategoryProduct>();
+
+            foreach (var cpDto in xmlCategoryProductsData)
+            {
+                if (!IsValid(cpDto))
+                {
+                    continue;
+                }
+                if (!categoryIds.Contains(cpDto.CategoryId) || !productIds.Contains(cpDto.ProductId))
+                {
+                    continue;
+                }
+
+                var categoryProduct = new CategoryProduct()
+                {
+                    CategoryId = cpDto.CategoryId,
+                    ProductId = cpDto.ProductId,
+                };
+                categoryProducts.Add(categoryProduct);
+            }
+
+            context.AddRange(categoryProducts);
+            context.SaveChanges();
+
+            return $"Successfully imported {categoryProducts.Count}";
         }
 
 
