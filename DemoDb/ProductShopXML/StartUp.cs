@@ -1,11 +1,16 @@
 ﻿using ProductShop.Data;
 using ProductShop.Models;
 using System.ComponentModel.DataAnnotations;
+using System.Text;
+using System.Xml;
 using System.Xml.Serialization;
+using ProductShop.DTOs.Export.Products;
 using ProductShop.DTOs.Import.Category;
 using ProductShop.DTOs.Import.CategoryProducts;
 using ProductShop.DTOs.Import.Product;
 using ProductShop.DTOs.Import.User;
+using System.Xml.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace ProductShop
 {
@@ -15,14 +20,14 @@ namespace ProductShop
         public static void Main()
         {
             var context = new ProductShopContext();
-            
-            directory = InitializeImportDirectory("categories-products.xml");
 
-            var xmlData = File.ReadAllText(directory);
+            directory = InitializeExportDirectory("products-in-range.xml");
 
-            var output = ImportCategoryProducts(context, xmlData);
+            //var xmlData = File.ReadAllText(directory);
 
-            Console.WriteLine(output);
+            var output = GetProductsInRange(context);
+
+            File.WriteAllText(directory, output);
         }
 
         /*          Import              */
@@ -162,7 +167,22 @@ namespace ProductShop
 
         public static string GetProductsInRange(ProductShopContext context)
         {
-            throw new NotImplementedException();
+            var products = context.Products
+                .Include(p => p.Buyer)
+                .Where(p => p.Price >= 500 && p.Price <= 1000)
+                .OrderBy(p => p.Price)
+                .Take(10)
+                .Select(p => new ExportProductInPriceRangeDto()
+                {
+                    Name = p.Name,
+                    Price = p.Price,
+                    BuyerFullName = string.Join(" ", p.Buyer.FirstName, p.Buyer.LastName)//$"{p.Buyer.FirstName} {p.Buyer.LastName}"
+                })
+                .ToArray();
+
+            var output = Serialize("Products", products);
+
+            return output;
         }
 
         public static string GetSoldProducts(ProductShopContext context)
@@ -196,6 +216,27 @@ namespace ProductShop
 
             bool isValid = Validator.TryValidateObject(obj, validationContext, validationResult, true);
             return isValid;
+        }
+
+        public static string Serialize<T>(string rootName, T dto)
+        {
+            var xmlRootName = new XmlRootAttribute(rootName);
+
+            var xmlNamespaces = new XmlSerializerNamespaces();
+            xmlNamespaces.Add(string.Empty, string.Empty);
+
+            var xmlSerializer = new XmlSerializer(typeof(T), xmlRootName);
+
+            var settings = new XmlWriterSettings();
+            settings.Indent = true;
+
+            var sb = new StringBuilder();
+            using (var xmlWriter = XmlWriter.Create(sb, settings))
+            {
+                xmlSerializer.Serialize(xmlWriter, dto, xmlNamespaces);
+            }
+
+            return sb.ToString().TrimEnd();
         }
     }
 }
