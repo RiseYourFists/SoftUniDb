@@ -1,19 +1,20 @@
 ﻿using ProductShop.Data;
 using ProductShop.Models;
 using System.ComponentModel.DataAnnotations;
-using System.Diagnostics.CodeAnalysis;
+
 using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
+using Microsoft.EntityFrameworkCore;
+
 using ProductShop.DTOs.Export.Products;
+using ProductShop.DTOs.Export.Categories;
+using ProductShop.DTOs.Export.Users;
+
 using ProductShop.DTOs.Import.Category;
 using ProductShop.DTOs.Import.CategoryProducts;
 using ProductShop.DTOs.Import.Product;
 using ProductShop.DTOs.Import.User;
-using System.Xml.Linq;
-using Microsoft.EntityFrameworkCore;
-using ProductShop.DTOs.Export.Categories;
-using ProductShop.DTOs.Export.Users;
 
 namespace ProductShop
 {
