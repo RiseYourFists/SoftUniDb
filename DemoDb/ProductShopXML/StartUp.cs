@@ -1,6 +1,7 @@
 ﻿using ProductShop.Data;
 using ProductShop.Models;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
@@ -11,6 +12,7 @@ using ProductShop.DTOs.Import.Product;
 using ProductShop.DTOs.Import.User;
 using System.Xml.Linq;
 using Microsoft.EntityFrameworkCore;
+using ProductShop.DTOs.Export.Categories;
 using ProductShop.DTOs.Export.Users;
 
 namespace ProductShop
@@ -22,11 +24,11 @@ namespace ProductShop
         {
             var context = new ProductShopContext();
 
-            directory = InitializeExportDirectory("users-sold-products.xml");
+            directory = InitializeExportDirectory("users-and-products.xml");
 
             //var xmlData = File.ReadAllText(directory);
 
-            var output = GetSoldProducts(context);
+            var output = GetUsersWithProducts(context);
 
             File.WriteAllText(directory, output);
         }
@@ -214,12 +216,63 @@ namespace ProductShop
 
         public static string GetCategoriesByProductsCount(ProductShopContext context)
         {
-            throw new NotImplementedException();
+            var categories = context.Categories
+                .Include(c => c.CategoryProducts)
+                .ThenInclude(cp => cp.Product)
+                .Select(c => new ExportCategoryDto
+                {
+                    Name = c.Name,
+                    Count = c.CategoryProducts.Count,
+                    AveragePrice = c.CategoryProducts.Average(cp => cp.Product.Price),
+                    TotalRevenue = c.CategoryProducts.Sum(cp => cp.Product.Price)
+                })
+                .OrderByDescending(c => c.Count)
+                .ThenBy(c => c.TotalRevenue)
+                .ToArray();
+
+            var output = Serialize("Categories", categories);
+
+            return output;
         }
 
         public static string GetUsersWithProducts(ProductShopContext context)
         {
-            throw new NotImplementedException();
+            var users = context.Users
+                .Include(u => u.ProductsSold)
+                .ThenInclude(ps => ps.CategoryProducts)
+                .Where(u => u.ProductsSold.Any())
+                .Select(u => new ExportUserWithProductsDto
+                {
+                    Id = u.Id,
+                    FirstName = u.FirstName,
+                    LastName = u.LastName,
+                    Age = u.Age,
+                    SoldProducts = new ExportSoldProductsDto()
+                    {
+                        Count = u.ProductsSold.Count,
+                        Products = u.ProductsSold
+                            .Select(p => new ExportProductDto()
+                            {
+                                Name = p.Name,
+                                Price = p.Price
+                            })
+                            .OrderByDescending(p => p.Price)
+                            .ToArray()
+                    }
+                })
+                .OrderByDescending(u => u.SoldProducts.Count)
+                .Take(10)
+                .ToArray();
+
+            var exportUserGeneralData = new ExportUsersDto()
+            {
+                Count = context.Users.Count(u => u.ProductsSold.Any()),
+                Users = users
+            };
+
+            var output = Serialize("Users", exportUserGeneralData);
+
+            return output;
         }
 
 
