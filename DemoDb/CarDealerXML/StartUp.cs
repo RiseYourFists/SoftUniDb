@@ -4,6 +4,7 @@ using System.Xml;
 using System.Xml.Serialization;
 using CarDealer.Data;
 using CarDealer.DTOs.Export.Cars;
+using CarDealer.DTOs.Export.Customers;
 using CarDealer.DTOs.Export.Parts;
 using CarDealer.DTOs.Export.Suppliers;
 using CarDealer.DTOs.Import.Cars;
@@ -12,6 +13,7 @@ using CarDealer.DTOs.Import.Parts;
 using CarDealer.DTOs.Import.Sales;
 using CarDealer.DTOs.Import.Suppliers;
 using CarDealer.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace CarDealer
 {
@@ -22,9 +24,9 @@ namespace CarDealer
         {
             var context = new CarDealerContext();
             
-            directory = InitializeExportDirectory("cars-and-parts.xml");
+            directory = InitializeExportDirectory("customers-total-sales.xml");
 
-            var output = GetCarsWithTheirListOfParts(context);
+            var output = GetTotalSalesByCustomer(context);
 
             File.WriteAllText(directory, output);
         }
@@ -287,7 +289,30 @@ namespace CarDealer
 
         public static string GetTotalSalesByCustomer(CarDealerContext context)
         {
-            throw new NotImplementedException();
+            var customers = context.Customers
+                .Include(c => c.Sales)
+                .ThenInclude(s => s.Car)
+                .ThenInclude(c => c.PartsCars)
+                .ThenInclude(p => p.Part)
+                .Where(c => c.Sales.Any())
+                .ToArray()
+                .Select(c => new ExportCustomerDto()
+                {
+                    FullName = c.Name,
+                    BoughtCars = c.Sales.Count,
+                    SpentMoney =Format( c.Sales
+                        .Select(s => s.Car.PartsCars
+                            .Select(pc => pc.Part.Price).Sum())
+                        .Sum() * (1 - (c.IsYoungDriver ? 0.05m : 0m)))
+
+                })
+                .OrderByDescending(c => c.SpentMoney)
+                .ToArray();
+
+            var rootName = "customers";
+            var output = Serialize(rootName, customers);
+
+            return output;
         }
 
         public static string GetSalesWithAppliedDiscount(CarDealerContext context)
@@ -340,6 +365,12 @@ namespace CarDealer
             }
 
             return sb.ToString().TrimEnd();
+        }
+
+        public static decimal Format(decimal number)
+        {
+            number = Math.Floor((number * 100));
+            return number / 100; 
         }
     }
 }
