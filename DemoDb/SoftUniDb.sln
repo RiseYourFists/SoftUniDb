@@ -69,6 +69,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductShop", "ProductShopX
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductShopXml.Tests", "ProductShopXml.Tests\ProductShopXml.Tests.csproj", "{CBDBA91F-912F-4A0D-9B93-FE76EF810A93}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarDealer", "CarDealerXML\CarDealer.csproj", "{F094C49A-B947-4B43-80E0-16366059CB9E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -175,6 +177,10 @@ Global
 		{CBDBA91F-912F-4A0D-9B93-FE76EF810A93}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBDBA91F-912F-4A0D-9B93-FE76EF810A93}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBDBA91F-912F-4A0D-9B93-FE76EF810A93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F094C49A-B947-4B43-80E0-16366059CB9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F094C49A-B947-4B43-80E0-16366059CB9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F094C49A-B947-4B43-80E0-16366059CB9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F094C49A-B947-4B43-80E0-16366059CB9E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -205,6 +211,7 @@ Global
 		{8CB73A51-AB92-46E1-82EA-82FA773FEE9A} = {5A28DC99-D276-4DF3-A15C-40810C354C64}
 		{893413CC-F0C2-4ACD-B41F-D61934D4D91B} = {FC789421-1F5D-4F4D-8DA4-6EB8F5C3D3AA}
 		{CBDBA91F-912F-4A0D-9B93-FE76EF810A93} = {FC789421-1F5D-4F4D-8DA4-6EB8F5C3D3AA}
+		{F094C49A-B947-4B43-80E0-16366059CB9E} = {FC789421-1F5D-4F4D-8DA4-6EB8F5C3D3AA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E05CEB43-98A9-4E79-A85D-809A4D10F41B}
