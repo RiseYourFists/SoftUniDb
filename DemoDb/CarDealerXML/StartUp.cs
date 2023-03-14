@@ -6,6 +6,7 @@ using CarDealer.Data;
 using CarDealer.DTOs.Export.Cars;
 using CarDealer.DTOs.Export.Customers;
 using CarDealer.DTOs.Export.Parts;
+using CarDealer.DTOs.Export.Sales;
 using CarDealer.DTOs.Export.Suppliers;
 using CarDealer.DTOs.Import.Cars;
 using CarDealer.DTOs.Import.Customers;
@@ -24,9 +25,9 @@ namespace CarDealer
         {
             var context = new CarDealerContext();
             
-            directory = InitializeExportDirectory("customers-total-sales.xml");
+            directory = InitializeExportDirectory("sales-discounts.xml");
 
-            var output = GetTotalSalesByCustomer(context);
+            var output = GetSalesWithAppliedDiscount(context);
 
             File.WriteAllText(directory, output);
         }
@@ -303,7 +304,7 @@ namespace CarDealer
                     SpentMoney =Format( c.Sales
                         .Select(s => s.Car.PartsCars
                             .Select(pc => pc.Part.Price).Sum())
-                        .Sum() * (1 - (c.IsYoungDriver ? 0.05m : 0m)))
+                        .Sum() * (1 - (c.IsYoungDriver ? 0.05m : 0m)), 100)
 
                 })
                 .OrderByDescending(c => c.SpentMoney)
@@ -317,7 +318,28 @@ namespace CarDealer
 
         public static string GetSalesWithAppliedDiscount(CarDealerContext context)
         {
-            throw new NotImplementedException();
+            var sales = context.Sales
+                .Select(s => new ExportSaleDto()
+                {
+                    Car = new ExportCarSaleDto()
+                    {
+                        Make = s.Car.Make,
+                        Model = s.Car.Model,
+                        TraveledDistance = s.Car.TraveledDistance,
+                    },
+                    Discount = s.Discount,
+                    CustomerName = s.Customer.Name,
+                    Price = s.Car.PartsCars.Select(pc => pc.Part.Price).Sum(),
+                    PriceWithDiscount = (double)(s.Car.PartsCars.Sum(pc => pc.Part.Price)-
+                                                 (s.Car.PartsCars.Sum(pc => pc.Part.Price) * (s.Discount / 100)))
+
+                })
+                .ToArray();
+
+            var rootName = "sales";
+            var output = Serialize(rootName, sales);
+
+            return output;
         }
 
         /*                          Helper Methods                  */
@@ -367,10 +389,10 @@ namespace CarDealer
             return sb.ToString().TrimEnd();
         }
 
-        public static decimal Format(decimal number)
+        public static decimal Format(decimal number , int precisionPoint)
         {
-            number = Math.Floor((number * 100));
-            return number / 100; 
+            number = Math.Floor((number * precisionPoint));
+            return number / precisionPoint; 
         }
     }
 }
