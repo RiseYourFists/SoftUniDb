@@ -3,6 +3,7 @@ using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
 using CarDealer.Data;
+using CarDealer.DTOs.Import.Cars;
 using CarDealer.DTOs.Import.Parts;
 using CarDealer.DTOs.Import.Suppliers;
 using CarDealer.Models;
@@ -15,7 +16,7 @@ namespace CarDealer
         public static void Main()
         {
             var context = new CarDealerContext();
-
+            
             directory = InitializeImportDirectory("cars.xml");
 
             var xmldata = File.ReadAllText(directory);
@@ -89,9 +90,44 @@ namespace CarDealer
 
         public static string ImportCars(CarDealerContext context, string inputXml)
         {
-            throw new NotImplementedException();
+            var carsXmlData = Deserialize<ImportCarDto[]>(inputXml, "Cars");
+            
+            var cars = new List<Car>();
+            foreach (var carDto in carsXmlData)
+            {
+                if(!IsValid(carDto))
+                    continue;
+                
+                var car = new Car()
+                {
+                    Make = carDto.Make,
+                    Model = carDto.Model,
+                    TraveledDistance = carDto.TraveledDistance
+                    
+                };
 
-            //return $"Successfully imported {cars.Count}";
+                var parts = context.Parts
+                    .Where(p => carDto.Parts
+                        .Select(cd => cd.Id)
+                        .Contains(p.Id))
+                    .ToArray();
+
+                foreach (var part in parts)
+                {
+                    car.PartsCars.Add(new PartCar()
+                    {
+                        Car = car,
+                        Part = part
+                    });
+                }
+
+                cars.Add(car);
+            }
+
+            context.AddRange(cars);
+            context.SaveChanges();
+
+            return $"Successfully imported {cars.Count}";
         }
 
         public static string ImportCustomers(CarDealerContext context, string inputXml)
