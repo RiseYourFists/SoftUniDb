@@ -11,6 +11,7 @@ using ProductShop.DTOs.Import.Product;
 using ProductShop.DTOs.Import.User;
 using System.Xml.Linq;
 using Microsoft.EntityFrameworkCore;
+using ProductShop.DTOs.Export.Users;
 
 namespace ProductShop
 {
@@ -21,11 +22,11 @@ namespace ProductShop
         {
             var context = new ProductShopContext();
 
-            directory = InitializeExportDirectory("products-in-range.xml");
+            directory = InitializeExportDirectory("users-sold-products.xml");
 
             //var xmlData = File.ReadAllText(directory);
 
-            var output = GetProductsInRange(context);
+            var output = GetSoldProducts(context);
 
             File.WriteAllText(directory, output);
         }
@@ -187,7 +188,28 @@ namespace ProductShop
 
         public static string GetSoldProducts(ProductShopContext context)
         {
-            throw new NotImplementedException();
+            var products = context.Users
+                .Where(u => u.ProductsSold.Any())
+                .OrderBy(u => u.LastName)
+                .ThenBy(u => u.FirstName)
+                .Take(5)
+                .Select(u => new ExportUserDto
+                {
+                    FirstName = u.FirstName,
+                    LastName = u.LastName,
+                    SoldProducts = u.ProductsSold
+                        .Select(p => new ExportProductDto
+                        {
+                            Name = p.Name,
+                            Price = p.Price
+                        })
+                        .ToArray()
+                })
+                .ToArray();
+
+            var output = Serialize("Users", products);
+
+            return output;
         }
 
         public static string GetCategoriesByProductsCount(ProductShopContext context)
