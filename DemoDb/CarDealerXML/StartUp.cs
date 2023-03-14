@@ -4,6 +4,7 @@ using System.Xml;
 using System.Xml.Serialization;
 using CarDealer.Data;
 using CarDealer.DTOs.Import.Cars;
+using CarDealer.DTOs.Import.Customers;
 using CarDealer.DTOs.Import.Parts;
 using CarDealer.DTOs.Import.Suppliers;
 using CarDealer.Models;
@@ -17,11 +18,11 @@ namespace CarDealer
         {
             var context = new CarDealerContext();
             
-            directory = InitializeImportDirectory("cars.xml");
+            directory = InitializeImportDirectory("customers.xml");
 
             var xmldata = File.ReadAllText(directory);
 
-            var output = ImportCars(context, xmldata);
+            var output = ImportCustomers(context, xmldata);
 
             Console.WriteLine(output);
         }
@@ -132,9 +133,29 @@ namespace CarDealer
 
         public static string ImportCustomers(CarDealerContext context, string inputXml)
         {
-            throw new NotImplementedException();
+            var customersXmlData = Deserialize<ImportCustomerDto[]>(inputXml, "Customers");
 
-            //return $"Successfully imported {customers.Count}";
+            var customers = new List<Customer>();
+            foreach (var customerDto in customersXmlData)
+            {
+                if (!IsValid(customerDto))
+                {
+                    continue;
+                }
+
+                var customer = new Customer()
+                {
+                    Name = customerDto.Name,
+                    BirthDate = customerDto.BirthDate,
+                    IsYoungDriver = customerDto.IsYoungDriver,
+                };
+                customers.Add(customer);
+            }
+
+            context.Customers.AddRange(customers);
+            context.SaveChanges();
+
+            return $"Successfully imported {customers.Count}";
         }
 
         public static string ImportSales(CarDealerContext context, string inputXml)
