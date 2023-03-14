@@ -3,6 +3,7 @@ using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
 using CarDealer.Data;
+using CarDealer.DTOs.Export.Cars;
 using CarDealer.DTOs.Import.Cars;
 using CarDealer.DTOs.Import.Customers;
 using CarDealer.DTOs.Import.Parts;
@@ -19,13 +20,11 @@ namespace CarDealer
         {
             var context = new CarDealerContext();
             
-            directory = InitializeImportDirectory("sales.xml");
+            directory = InitializeExportDirectory("bmw-cars.xml");
 
-            var xmldata = File.ReadAllText(directory);
+            var output = GetCarsFromMakeBmw(context);
 
-            var output = ImportSales(context, xmldata);
-
-            Console.WriteLine(output);
+            File.WriteAllText(directory, output);
         }
 
         /*                          Import Methods                  */
@@ -199,12 +198,43 @@ namespace CarDealer
 
         public static string GetCarsWithDistance(CarDealerContext context)
         {
-            throw new NotImplementedException();
+            var cars = context.Cars
+                .Where(c => c.TraveledDistance > 2_000_000)
+                .OrderBy(c => c.Make)
+                .ThenBy(c => c.Model)
+                .Take(10)
+                .Select(c => new ExportCarWithDistanceDto
+                {
+                    Make = c.Make,
+                    Model = c.Model,
+                    TraveledDistance = c.TraveledDistance,
+                })
+                .ToArray();
+
+            var rootName = "cars";
+            var output = Serialize(rootName, cars);
+
+            return output;
         }
 
         public static string GetCarsFromMakeBmw(CarDealerContext context)
         {
-            throw new NotImplementedException();
+            var cars = context.Cars
+                .Where(c => c.Make == "BMW")
+                .OrderBy(c => c.Model)
+                .ThenByDescending(c => c.TraveledDistance)
+                .Select(c => new ExportCarsMakeBmwDto()
+                {
+                    Id = c.Id,
+                    Model = c.Model,
+                    TraveledDistance = c.TraveledDistance
+                })
+                .ToArray();
+
+            var rootName = "cars";
+            var output = Serialize(rootName, cars);
+
+            return output;
         }
 
         public static string GetLocalSuppliers(CarDealerContext context)
@@ -243,9 +273,9 @@ namespace CarDealer
             return isValid;
         }
 
-        public static T Deserialize<T>(string xmlInput, string root)
+        public static T Deserialize<T>(string xmlInput, string rootName)
         {
-            var xmlRoot = new XmlRootAttribute(root);
+            var xmlRoot = new XmlRootAttribute(rootName);
             var xmlSerializer = new XmlSerializer(typeof(T), xmlRoot);
 
             var xmlReader = new StringReader(xmlInput);
@@ -254,9 +284,9 @@ namespace CarDealer
             return output;
         }
 
-        public static string Serialize<T>(string root, T dto)
+        public static string Serialize<T>(string rootName, T dto)
         {
-            var xmlRoot = new XmlRootAttribute(root);
+            var xmlRoot = new XmlRootAttribute(rootName);
             var xmlNameSpaces = new XmlSerializerNamespaces();
             xmlNameSpaces.Add(string.Empty, string.Empty);
 
