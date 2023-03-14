@@ -6,6 +6,7 @@ using CarDealer.Data;
 using CarDealer.DTOs.Import.Cars;
 using CarDealer.DTOs.Import.Customers;
 using CarDealer.DTOs.Import.Parts;
+using CarDealer.DTOs.Import.Sales;
 using CarDealer.DTOs.Import.Suppliers;
 using CarDealer.Models;
 
@@ -18,11 +19,11 @@ namespace CarDealer
         {
             var context = new CarDealerContext();
             
-            directory = InitializeImportDirectory("customers.xml");
+            directory = InitializeImportDirectory("sales.xml");
 
             var xmldata = File.ReadAllText(directory);
 
-            var output = ImportCustomers(context, xmldata);
+            var output = ImportSales(context, xmldata);
 
             Console.WriteLine(output);
         }
@@ -160,9 +161,38 @@ namespace CarDealer
 
         public static string ImportSales(CarDealerContext context, string inputXml)
         {
-            throw new NotImplementedException();
+            var salesXmlData = Deserialize<ImportSaleDto[]>(inputXml, "Sales");
 
-            //return $"Successfully imported {sales.Count}";
+            ICollection<Sale> sales = new List<Sale>();
+
+            foreach (var salesDto in salesXmlData)
+            {
+                if (!IsValid(salesDto))
+                {
+                    continue;
+                }
+
+                bool hasItems = context.Cars.Any(c => c.Id == salesDto.CarId);
+
+                if (!hasItems)
+                {
+                    continue;
+                }
+
+                var sale = new Sale()
+                {
+                    CarId = salesDto.CarId,
+                    CustomerId = salesDto.CustomerId,
+                    Discount = salesDto.Discount,
+                };
+                
+                sales.Add(sale);
+            }
+            
+            context.Sales.AddRange(sales);
+            context.SaveChanges();
+
+            return $"Successfully imported {sales.Count}";
         }
 
         /*                          Export Methods                  */
