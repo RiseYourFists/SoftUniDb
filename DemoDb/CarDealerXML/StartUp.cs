@@ -4,6 +4,8 @@ using System.Xml;
 using System.Xml.Serialization;
 using CarDealer.Data;
 using CarDealer.DTOs.Export.Cars;
+using CarDealer.DTOs.Export.Parts;
+using CarDealer.DTOs.Export.Suppliers;
 using CarDealer.DTOs.Import.Cars;
 using CarDealer.DTOs.Import.Customers;
 using CarDealer.DTOs.Import.Parts;
@@ -20,9 +22,9 @@ namespace CarDealer
         {
             var context = new CarDealerContext();
             
-            directory = InitializeExportDirectory("bmw-cars.xml");
+            directory = InitializeExportDirectory("cars-and-parts.xml");
 
-            var output = GetCarsFromMakeBmw(context);
+            var output = GetCarsWithTheirListOfParts(context);
 
             File.WriteAllText(directory, output);
         }
@@ -239,12 +241,48 @@ namespace CarDealer
 
         public static string GetLocalSuppliers(CarDealerContext context)
         {
-            throw new NotImplementedException();
+            var suppliers = context.Suppliers
+                .Where(s => !s.IsImporter)
+                .Select(s => new ExportSupplierDto()
+                {
+                    Id = s.Id,
+                    Name = s.Name,
+                    PartsCount = s.Parts.Count()
+                })
+                .ToArray();
+
+            var rootName = "suppliers";
+            var output = Serialize(rootName, suppliers);
+
+            return output;
         }
 
         public static string GetCarsWithTheirListOfParts(CarDealerContext context)
         {
-            throw new NotImplementedException();
+            var cars = context.Cars
+                .OrderByDescending(c => c.TraveledDistance)
+                .ThenBy(c => c.Model)
+                .Take(5)
+                .Select(c => new ExportCarWithPartsDto()
+                {
+                    Make = c.Make,
+                    Model = c.Model,
+                    TraveledDistance = c.TraveledDistance,
+                    Parts = c.PartsCars
+                        .Select(pc => new ExportPartDto()
+                        {
+                            Name = pc.Part.Name,
+                            Price = pc.Part.Price
+                        })
+                        .OrderByDescending(p => p.Price)
+                        .ToArray()
+                })
+                .ToArray();
+
+            var rootName = "cars";
+            var output = Serialize(rootName, cars);
+
+            return output;
         }
 
         public static string GetTotalSalesByCustomer(CarDealerContext context)
